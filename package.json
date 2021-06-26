@@ -1,5 +1,5 @@
 {
-  "name": "Kiimo",
+  "name": "kiimo",
   "version": "1.0.0",
   "description": "Modify, and generate keyboard layout from single JSON file.",
   "main": "main.ts",
@@ -13,6 +13,9 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "class-transformer": "^0.4.0",
+    "class-validator": "^0.13.1",
+    "reflect-metadata": "^0.1.13",
     "xml-js": "^1.6.11"
   },
   "devDependencies": {
