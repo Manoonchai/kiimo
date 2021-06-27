@@ -216,7 +216,7 @@ export async function generateLayout(content: Record<string, unknown>) {
           {
             type: "element",
             name: "keyMapSet",
-            attributes: { id: "defaultKeyMapSet", defaultIndex: "0" },
+            attributes: { id: "defaultKeyMapSet" },
             elements: [
               {
                 type: "element",
@@ -231,6 +231,10 @@ export async function generateLayout(content: Record<string, unknown>) {
                     overrideKey = layout.keys[output]?.[0] || output
                   } else {
                     overrideKey = output
+                  }
+
+                  if (overrideKey == "&") {
+                    overrideKey = escape("&#x0026;")
                   }
 
                   if (unicode) {
@@ -256,6 +260,10 @@ export async function generateLayout(content: Record<string, unknown>) {
                     overrideKey = layout.keys[output]?.[1] || output
                   } else {
                     overrideKey = output
+                  }
+
+                  if (overrideKey == "&") {
+                    overrideKey = escape("&#x0026;")
                   }
 
                   if (unicode) {

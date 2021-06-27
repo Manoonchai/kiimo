@@ -30,7 +30,7 @@
       <modifier keys="caps anyShift anyOption anyControl? command?"/>
     </keyMapSelect>
   </modifierMap>
-  <keyMapSet id="defaultKeyMapSet" defaultIndex="0">
+  <keyMapSet id="defaultKeyMapSet">
     <keyMap index="0">
       <key code="0" output="ง"/>
       <key code="1" output="เ"/>
@@ -167,7 +167,7 @@
       <key code="23" output="%"/>
       <key code="24" output="+"/>
       <key code="25" output="("/>
-      <key code="26" output="&"/>
+      <key code="26" output="&#x0026;"/>
       <key code="27" output="_"/>
       <key code="28" output="*"/>
       <key code="29" output=")"/>

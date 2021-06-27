@@ -68,12 +68,9 @@ describe("generateLayout", () => {
       )
     )
 
-    let manoonchaiXml = await generateLayout(manoonchaiJson)
+    const manoonchaiXml = await generateLayout(manoonchaiJson)
 
     expect(manoonchaiXml).toBeDefined()
-
-    // Escape special symbols which breaks xml2js
-    manoonchaiXml = manoonchaiXml.replace(/"&"/g, `"&#x0026;"`)
 
     const manoonchai = xml2js(manoonchaiXml)
 
@@ -85,10 +82,14 @@ describe("generateLayout", () => {
       })
     )
 
-    fs.writeFileSync("output/tmp.xml", js2xml(manoonchai, { spaces: 2 }), {})
+    fs.writeFileSync(
+      "output/tmp.keylayout",
+      js2xml(manoonchai, { spaces: 2 }),
+      {}
+    )
 
     const options = {
-      files: "output/tmp.xml",
+      files: "output/tmp.keylayout",
       from: /%26%23x([0-9A-F]+)%3B/g,
       to: "&#x$1;",
     }
@@ -418,7 +419,7 @@ describe("generateLayout", () => {
       { code: "23", output: "%" },
       { code: "24", output: "+" },
       { code: "25", output: "(" },
-      { code: "26", output: "&" },
+      { code: "26", output: escape("&#x0026;") },
       { code: "27", output: "_" },
       { code: "28", output: "*" },
       { code: "29", output: ")" },
@@ -499,7 +500,7 @@ describe("generateLayout", () => {
     expect(keyMapSet).toEqual({
       type: "element",
       name: "keyMapSet",
-      attributes: { id: "defaultKeyMapSet", defaultIndex: "0" },
+      attributes: { id: "defaultKeyMapSet" },
       elements: [
         {
           type: "element",
@@ -529,13 +530,10 @@ describe("generateLayout", () => {
     })
 
     // Test if escaped unicode works
-    let content = fs.readFileSync(
-      path.join(process.cwd(), "output", "tmp.xml"),
+    const content = fs.readFileSync(
+      path.join(process.cwd(), "output", "tmp.keylayout"),
       "utf8"
     )
-
-    // Escape special symbols which breaks xml2js
-    content = content.replace(/"&"/g, `"&#x0026;"`)
 
     const layout = xml2js(content)
     const keys = layout.elements[1].elements[2].elements[0].elements
