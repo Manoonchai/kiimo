@@ -68,9 +68,12 @@ describe("generateLayout", () => {
       )
     )
 
-    const manoonchaiXml = await generateLayout(manoonchaiJson)
+    let manoonchaiXml = await generateLayout(manoonchaiJson)
 
     expect(manoonchaiXml).toBeDefined()
+
+    // Escape special symbols which breaks xml2js
+    manoonchaiXml = manoonchaiXml.replace(/"&"/g, `"&#x0026;"`)
 
     const manoonchai = xml2js(manoonchaiXml)
 
@@ -111,7 +114,7 @@ describe("generateLayout", () => {
         name: "keyboard",
         attributes: {
           group: "0",
-          id: "5991",
+          id: "12345",
           name: "Manoonchai",
           maxout: "1",
         },
@@ -388,6 +391,109 @@ describe("generateLayout", () => {
       { code: "125", output: escape("&#x001F;") },
       { code: "126", output: escape("&#x001E;") },
     ]
+    const expectedShiftedKeys = [
+      { code: "0", output: "ษ" },
+      { code: "1", output: "ถ" },
+      { code: "2", output: "แ" },
+      { code: "3", output: "ช" },
+      { code: "4", output: "ผ" },
+      { code: "5", output: "พ" },
+      { code: "6", output: "ฤ" },
+      { code: "7", output: "ฝ" },
+      { code: "8", output: "ๆ" },
+      { code: "9", output: "ณ" },
+      { code: "10", output: "§" },
+      { code: "11", output: "๊" },
+      { code: "12", output: "ฒ" },
+      { code: "13", output: "ฏ" },
+      { code: "14", output: "ซ" },
+      { code: "15", output: "ญ" },
+      { code: "16", output: "ฉ" },
+      { code: "17", output: "ฟ" },
+      { code: "18", output: "!" },
+      { code: "19", output: "@" },
+      { code: "20", output: "#" },
+      { code: "21", output: "$" },
+      { code: "22", output: "^" },
+      { code: "23", output: "%" },
+      { code: "24", output: "+" },
+      { code: "25", output: "(" },
+      { code: "26", output: "&" },
+      { code: "27", output: "_" },
+      { code: "28", output: "*" },
+      { code: "29", output: ")" },
+      { code: "30", output: "ฑ" },
+      { code: "31", output: "ฐ" },
+      { code: "32", output: "ึ" },
+      { code: "33", output: "ฆ" },
+      { code: "34", output: "ธ" },
+      { code: "35", output: "ฎ" },
+      { code: "36", output: escape("&#x000D;") },
+      { code: "37", output: "โ" },
+      { code: "38", output: "ำ" },
+      { code: "39", output: '"' },
+      { code: "40", output: "ข" },
+      { code: "41", output: "ภ" },
+      { code: "42", output: "ฌ" },
+      { code: "43", output: "ศ" },
+      { code: "44", output: "?" },
+      { code: "45", output: "๋" },
+      { code: "46", output: "์" },
+      { code: "47", output: "ฮ" },
+      { code: "48", output: escape("&#x0009;") },
+      { code: "49", output: " " },
+      { code: "50", output: "~" },
+      { code: "51", output: escape("&#x0008;") },
+      { code: "52", output: escape("&#x0003;") },
+      { code: "53", output: escape("&#x001B;") },
+      { code: "65", output: "." },
+      { code: "66", output: escape("&#x001D;") },
+      { code: "67", output: "*" },
+      { code: "69", output: "+" },
+      { code: "70", output: escape("&#x001C;") },
+      { code: "71", output: escape("&#x001B;") },
+      { code: "72", output: escape("&#x001F;") },
+      { code: "75", output: "/" },
+      { code: "76", output: escape("&#x0003;") },
+      { code: "77", output: escape("&#x001E;") },
+      { code: "78", output: "-" },
+      { code: "81", output: "=" },
+      { code: "82", output: "0" },
+      { code: "83", output: "1" },
+      { code: "84", output: "2" },
+      { code: "85", output: "3" },
+      { code: "86", output: "4" },
+      { code: "87", output: "5" },
+      { code: "88", output: "6" },
+      { code: "89", output: "7" },
+      { code: "91", output: "8" },
+      { code: "92", output: "9" },
+      { code: "96", output: escape("&#x0010;") },
+      { code: "97", output: escape("&#x0010;") },
+      { code: "98", output: escape("&#x0010;") },
+      { code: "99", output: escape("&#x0010;") },
+      { code: "100", output: escape("&#x0010;") },
+      { code: "101", output: escape("&#x0010;") },
+      { code: "103", output: escape("&#x0010;") },
+      { code: "105", output: escape("&#x0010;") },
+      { code: "107", output: escape("&#x0010;") },
+      { code: "109", output: escape("&#x0010;") },
+      { code: "111", output: escape("&#x0010;") },
+      { code: "113", output: escape("&#x0010;") },
+      { code: "114", output: escape("&#x0005;") },
+      { code: "115", output: escape("&#x0001;") },
+      { code: "116", output: escape("&#x000B;") },
+      { code: "117", output: escape("&#x007F;") },
+      { code: "118", output: escape("&#x0010;") },
+      { code: "119", output: escape("&#x0004;") },
+      { code: "120", output: escape("&#x0010;") },
+      { code: "121", output: escape("&#x000C;") },
+      { code: "122", output: escape("&#x0010;") },
+      { code: "123", output: escape("&#x001C;") },
+      { code: "124", output: escape("&#x001D;") },
+      { code: "125", output: escape("&#x001F;") },
+      { code: "126", output: escape("&#x001E;") },
+    ]
 
     const keyMapSet = keyboard.elements[2]
     expect(keyMapSet).toEqual({
@@ -407,14 +513,29 @@ describe("generateLayout", () => {
             }))
           ),
         },
+        {
+          type: "element",
+          name: "keyMap",
+          attributes: { index: "1" },
+          elements: expect.arrayContaining(
+            expectedShiftedKeys.map(({ code, output }) => ({
+              type: "element",
+              name: "key",
+              attributes: { code, output },
+            }))
+          ),
+        },
       ],
     })
 
     // Test if escaped unicode works
-    const content = fs.readFileSync(
+    let content = fs.readFileSync(
       path.join(process.cwd(), "output", "tmp.xml"),
       "utf8"
     )
+
+    // Escape special symbols which breaks xml2js
+    content = content.replace(/"&"/g, `"&#x0026;"`)
 
     const layout = xml2js(content)
     const keys = layout.elements[1].elements[2].elements[0].elements

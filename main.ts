@@ -171,7 +171,7 @@ export async function generateLayout(content: Record<string, unknown>) {
         name: "keyboard",
         attributes: {
           group: "0",
-          id: "5991",
+          id: "12345",
           name: layout.name,
           maxout: "1",
         },
@@ -235,6 +235,31 @@ export async function generateLayout(content: Record<string, unknown>) {
 
                   if (unicode) {
                     overrideKey = encodeURIComponent(output)
+                  }
+                  return {
+                    type: "element",
+                    name: "key",
+                    attributes: { code, output: overrideKey },
+                  }
+                }),
+              },
+              {
+                type: "element",
+                name: "keyMap",
+                attributes: { index: "1" },
+                elements: defaultKeys.map(({ code, output, unicode }) => {
+                  let overrideKey
+
+                  // Override only index 0-50
+                  // Since some symbols are the same in numpad's position and should not be overridden
+                  if (code <= 50) {
+                    overrideKey = layout.keys[output]?.[1] || output
+                  } else {
+                    overrideKey = output
+                  }
+
+                  if (unicode) {
+                    overrideKey = encodeURIComponent(overrideKey)
                   }
                   return {
                     type: "element",
