@@ -1,7 +1,7 @@
-import "reflect-metadata";
-import fs from "fs";
-import path from "path";
-import { plainToClass } from "class-transformer";
+import "reflect-metadata"
+import fs from "fs"
+import path from "path"
+import { plainToClass } from "class-transformer"
 import {
   ArrayNotEmpty,
   IsDefined,
@@ -9,32 +9,32 @@ import {
   IsNotEmptyObject,
   IsString,
   validate,
-} from "class-validator";
-import { js2xml } from "xml-js";
+} from "class-validator"
+import { js2xml } from "xml-js"
 
 export function generate() {
-  fs.writeFileSync(path.join("output", "foo.keylayout"), "Hello!");
+  fs.writeFileSync(path.join("output", "foo.keylayout"), "Hello!")
 }
 
 export async function validateLayout(
   content: Record<string, unknown>
 ): Promise<boolean> {
-  const layout = plainToClass(Layout, content);
-  const errors = await validate(layout);
+  const layout = plainToClass(Layout, content)
+  const errors = await validate(layout)
 
   if (errors.length) {
-    console.log(errors.map((e) => e.toString()).join(", "));
+    console.log(errors.map((e) => e.toString()).join(", "))
   }
 
-  return !errors.length;
+  return !errors.length
 }
 
 export async function generateLayout(content: Record<string, unknown>) {
-  const layout = plainToClass(Layout, content);
-  const errors = await validate(layout);
+  const layout = plainToClass(Layout, content)
+  const errors = await validate(layout)
 
   if (errors.length) {
-    throw new Error(errors.map((e) => e.toString()).join(", "));
+    throw new Error(errors.map((e) => e.toString()).join(", "))
   }
 
   const defaultKeyMapSelects = [
@@ -46,7 +46,7 @@ export async function generateLayout(content: Record<string, unknown>) {
     "caps anyShift anyControl? command?",
     "caps anyOption anyControl? command?",
     "caps anyShift anyOption anyControl? command?",
-  ];
+  ]
 
   const defaultKeys = [
     { code: 0, output: "a" },
@@ -156,7 +156,7 @@ export async function generateLayout(content: Record<string, unknown>) {
     { code: 124, output: "&#x001D;", unicode: true },
     { code: 125, output: "&#x001F;", unicode: true },
     { code: 126, output: "&#x001E;", unicode: true },
-  ];
+  ]
 
   const document = {
     declaration: { attributes: { version: "1.1", encoding: "UTF-8" } },
@@ -223,16 +223,16 @@ export async function generateLayout(content: Record<string, unknown>) {
                 name: "keyMap",
                 attributes: { index: "0" },
                 elements: defaultKeys.map(({ code, output, unicode }) => {
-                  let overrideKey = layout.keys[output]?.[0] || output;
+                  let overrideKey = layout.keys[output]?.[0] || output
 
                   if (unicode) {
-                    overrideKey = encodeURIComponent(output);
+                    overrideKey = encodeURIComponent(output)
                   }
                   return {
                     type: "element",
                     name: "key",
                     attributes: { code, output: overrideKey },
-                  };
+                  }
                 }),
               },
             ],
@@ -240,28 +240,28 @@ export async function generateLayout(content: Record<string, unknown>) {
         ],
       },
     ],
-  };
+  }
 
-  return js2xml(document, { spaces: 2 });
+  return js2xml(document, { spaces: 2 })
 }
 
 export class Layout {
   @IsString()
-  name: string;
+  name: string
 
   @IsString()
-  version: string;
+  version: string
 
   @IsString()
-  language: string;
+  language: string
 
   @ArrayNotEmpty()
   @IsIn(["Base", "Shift", "AltGr"], { each: true })
-  layers: Layer[];
+  layers: Layer[]
 
   @IsDefined()
   @IsNotEmptyObject()
-  keys: Record<string, string[]>;
+  keys: Record<string, string[]>
 }
 
-type Layer = "Base" | "Shift" | "AltGr";
+type Layer = "Base" | "Shift" | "AltGr"

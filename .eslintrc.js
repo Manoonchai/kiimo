@@ -16,4 +16,4 @@ module.exports = {
   },
   plugins: ["@typescript-eslint", "jest", "prettier"],
   rules: {},
-};
+}

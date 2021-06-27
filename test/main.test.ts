@@ -1,33 +1,33 @@
-import fs from "fs";
-import path from "path";
-import { js2xml, xml2js } from "xml-js";
-import { generate, generateLayout, validateLayout } from "../main";
-import replace from "replace-in-file";
+import fs from "fs"
+import path from "path"
+import { js2xml, xml2js } from "xml-js"
+import { generate, generateLayout, validateLayout } from "../main"
+import replace from "replace-in-file"
 
 describe("#generate", () => {
   beforeAll(() => {
-    generate();
-  });
+    generate()
+  })
 
   it("creates output .keylayout file", () => {
     expect(
       fs.existsSync(path.join(process.cwd(), "output", "foo.keylayout"))
-    ).toBeTruthy();
-  });
+    ).toBeTruthy()
+  })
 
   it("creates a valid keylayout XML file", () => {
     const content = fs.readFileSync(
       path.join(process.cwd(), "output", "bar.keylayout"),
       "utf8"
-    );
-    const jsContent = xml2js(content);
+    )
+    const jsContent = xml2js(content)
 
     js2xml(jsContent, {
       compact: false,
       spaces: 2,
-    });
-  });
-});
+    })
+  })
+})
 
 describe("validateLayout", () => {
   it("passes structure validation", async () => {
@@ -36,28 +36,28 @@ describe("validateLayout", () => {
         path.join(process.cwd(), "input", "manoonchai.json"),
         "utf8"
       )
-    );
-    const result = await validateLayout(validJson);
+    )
+    const result = await validateLayout(validJson)
 
-    expect(result).toEqual(true);
+    expect(result).toEqual(true)
 
     const invalidJson = JSON.parse(
       fs.readFileSync(
         path.join(process.cwd(), "input", "manoonchai.json"),
         "utf8"
       )
-    );
+    )
 
     // Empty keys
-    invalidJson["keys"] = {};
-    expect(await validateLayout(invalidJson)).toEqual(false);
+    invalidJson["keys"] = {}
+    expect(await validateLayout(invalidJson)).toEqual(false)
 
     // Invalid layer name
-    invalidJson["keys"] = { a: ["a", "A"] };
-    invalidJson["layers"][0] = "InvalidLayerName";
-    expect(await validateLayout(invalidJson)).toEqual(false);
-  });
-});
+    invalidJson["keys"] = { a: ["a", "A"] }
+    invalidJson["layers"][0] = "InvalidLayerName"
+    expect(await validateLayout(invalidJson)).toEqual(false)
+  })
+})
 
 describe("generateLayout", () => {
   it("receives layout json and returns keylayout xml correctly", async () => {
@@ -66,45 +66,45 @@ describe("generateLayout", () => {
         path.join(process.cwd(), "input", "manoonchai.json"),
         "utf8"
       )
-    );
+    )
 
-    const manoonchaiXml = await generateLayout(manoonchaiJson);
+    const manoonchaiXml = await generateLayout(manoonchaiJson)
 
-    expect(manoonchaiXml).toBeDefined();
+    expect(manoonchaiXml).toBeDefined()
 
-    const manoonchai = xml2js(manoonchaiXml);
+    const manoonchai = xml2js(manoonchaiXml)
 
-    expect(manoonchai).not.toStrictEqual({});
+    expect(manoonchai).not.toStrictEqual({})
 
     expect(manoonchai).toEqual(
       expect.objectContaining({
         declaration: { attributes: { version: "1.1", encoding: "UTF-8" } },
       })
-    );
+    )
 
-    fs.writeFileSync("output/tmp.xml", js2xml(manoonchai, { spaces: 2 }), {});
+    fs.writeFileSync("output/tmp.xml", js2xml(manoonchai, { spaces: 2 }), {})
 
     const options = {
       files: "output/tmp.xml",
       from: /%26%23x([0-9A-F]+)%3B/g,
       to: "&#x$1;",
-    };
+    }
 
     try {
-      const results = replace.sync(options);
-      console.log("Replacement results:", results);
+      const results = replace.sync(options)
+      console.log("Replacement results:", results)
     } catch (error) {
-      console.error("Error occurred:", error);
+      console.error("Error occurred:", error)
     }
 
     expect(manoonchai.elements[0]).toEqual({
       doctype:
         'keyboard SYSTEM "file://localhost/System/Library/DTDs/KeyboardLayout.dtd"',
       type: "doctype",
-    });
+    })
 
     // <keyboard group="0" id="5991" name="Thai - Manoonchai v0.3" maxout="1">
-    const keyboard = manoonchai.elements[1];
+    const keyboard = manoonchai.elements[1]
     expect(keyboard).toEqual(
       expect.objectContaining({
         type: "element",
@@ -116,12 +116,12 @@ describe("generateLayout", () => {
           maxout: "1",
         },
       })
-    );
+    )
 
     // <layouts>
     //     <layout first="0" last="0" mapSet="a8" modifiers="30"/>
     // </layouts>
-    const layouts = keyboard.elements[0];
+    const layouts = keyboard.elements[0]
     expect(layouts).toEqual({
       type: "element",
       name: "layouts",
@@ -137,7 +137,7 @@ describe("generateLayout", () => {
           },
         },
       ],
-    });
+    })
 
     // <modifierMap id="defaultModifierMap" defaultIndex="0">
     //   <keyMapSelect mapIndex="0">
@@ -145,7 +145,7 @@ describe("generateLayout", () => {
     //   </keyMapSelect>
     //   ...
     // </modifierMap>
-    const modifierMap = keyboard.elements[1];
+    const modifierMap = keyboard.elements[1]
     expect(modifierMap).toEqual({
       type: "element",
       name: "modifierMap",
@@ -280,7 +280,7 @@ describe("generateLayout", () => {
           ],
         },
       ],
-    });
+    })
 
     // <keyMapSet id="defaultKeyMapSet">
     //   <keyMap index="0">
@@ -296,8 +296,8 @@ describe("generateLayout", () => {
       { code: "28", output: "8" },
       { code: "25", output: "9" },
       { code: "29", output: "0" },
-    ];
-    const keyMapSet = keyboard.elements[2];
+    ]
+    const keyMapSet = keyboard.elements[2]
     expect(keyMapSet).toEqual({
       type: "element",
       name: "keyMapSet",
@@ -316,6 +316,17 @@ describe("generateLayout", () => {
           ),
         },
       ],
-    });
-  });
-});
+    })
+
+    // Test if escaped unicode works
+    const content = fs.readFileSync(
+      path.join(process.cwd(), "output", "tmp.xml"),
+      "utf8"
+    )
+
+    const layout = xml2js(content)
+    const keys = layout.elements[1].elements[2].elements[0].elements
+    expect(keys[keys.length - 1].attributes["code"]).toEqual("126")
+    expect(keys[keys.length - 1].attributes["output"]).toEqual("\u001e")
+  })
+})
