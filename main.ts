@@ -88,7 +88,7 @@ export async function generateLayout(content: Record<string, unknown>) {
     { code: 36, output: "&#x000D;", unicode: true },
     { code: 37, output: "l" },
     { code: 38, output: "j" },
-    { code: 39, output: "&#x0027;", unicode: true },
+    { code: 39, output: "'" },
     { code: 40, output: "k" },
     { code: 41, output: ";" },
     { code: 42, output: "\\" },
@@ -223,7 +223,15 @@ export async function generateLayout(content: Record<string, unknown>) {
                 name: "keyMap",
                 attributes: { index: "0" },
                 elements: defaultKeys.map(({ code, output, unicode }) => {
-                  let overrideKey = layout.keys[output]?.[0] || output
+                  let overrideKey
+
+                  // Override only index 0-50
+                  // Since some symbols are the same in numpad's position and should not be overridden
+                  if (code <= 50) {
+                    overrideKey = layout.keys[output]?.[0] || output
+                  } else {
+                    overrideKey = output
+                  }
 
                   if (unicode) {
                     overrideKey = encodeURIComponent(output)

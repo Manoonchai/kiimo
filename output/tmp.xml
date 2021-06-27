@@ -71,7 +71,7 @@
       <key code="36" output="&#x000D;"/>
       <key code="37" output="้"/>
       <key code="38" output="า"/>
-      <key code="39" output="&#x0027;"/>
+      <key code="39" output="ื"/>
       <key code="40" output="่"/>
       <key code="41" output="ว"/>
       <key code="42" output="ฯ"/>
@@ -86,14 +86,14 @@
       <key code="51" output="&#x0008;"/>
       <key code="52" output="&#x0003;"/>
       <key code="53" output="&#x001B;"/>
-      <key code="65" output="ะ"/>
+      <key code="65" output="."/>
       <key code="66" output="&#x001D;"/>
       <key code="67" output="*"/>
-      <key code="69" output="="/>
+      <key code="69" output="+"/>
       <key code="70" output="&#x001C;"/>
       <key code="71" output="&#x001B;"/>
       <key code="72" output="&#x001F;"/>
-      <key code="75" output="ู"/>
+      <key code="75" output="/"/>
       <key code="76" output="&#x0003;"/>
       <key code="77" output="&#x001E;"/>
       <key code="78" output="-"/>
