@@ -16,6 +16,7 @@
     "class-transformer": "^0.4.0",
     "class-validator": "^0.13.1",
     "reflect-metadata": "^0.1.13",
+    "replace-in-file": "^6.2.0",
     "xml-js": "^1.6.11"
   },
   "devDependencies": {
