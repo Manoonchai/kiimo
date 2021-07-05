@@ -1,33 +1,8 @@
 import fs from "fs"
 import path from "path"
 import { js2xml, xml2js } from "xml-js"
-import { generate, generateLayout, validateLayout } from "../main"
+import { generateLayout, validateLayout } from "../main"
 import replace from "replace-in-file"
-
-describe("#generate", () => {
-  beforeAll(() => {
-    generate()
-  })
-
-  it("creates output .keylayout file", () => {
-    expect(
-      fs.existsSync(path.join(process.cwd(), "output", "foo.keylayout"))
-    ).toBeTruthy()
-  })
-
-  it("creates a valid keylayout XML file", () => {
-    const content = fs.readFileSync(
-      path.join(process.cwd(), "output", "bar.keylayout"),
-      "utf8"
-    )
-    const jsContent = xml2js(content)
-
-    js2xml(jsContent, {
-      compact: false,
-      spaces: 2,
-    })
-  })
-})
 
 describe("validateLayout", () => {
   it("passes structure validation", async () => {

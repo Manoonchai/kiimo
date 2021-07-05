@@ -12,10 +12,6 @@ import {
 } from "class-validator"
 import { js2xml } from "xml-js"
 
-export function generate() {
-  fs.writeFileSync(path.join("output", "foo.keylayout"), "Hello!")
-}
-
 export async function validateLayout(
   content: Record<string, unknown>
 ): Promise<boolean> {

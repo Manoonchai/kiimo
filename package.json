@@ -7,6 +7,7 @@
   "author": "Manassarn Manoonchai <manassarn@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "generate": "ts-node cli.ts",
     "start": "ts-node .",
     "test": "jest",
     "lint": "eslint .",
@@ -15,6 +16,7 @@
   "dependencies": {
     "class-transformer": "^0.4.0",
     "class-validator": "^0.13.1",
+    "prompts": "^2.4.1",
     "reflect-metadata": "^0.1.13",
     "replace-in-file": "^6.2.0",
     "xml-js": "^1.6.11"
@@ -22,6 +24,7 @@
   "devDependencies": {
     "@types/jest": "^26.0.23",
     "@types/node": "^15.12.4",
+    "@types/prompts": "^2.0.13",
     "@typescript-eslint/eslint-plugin": "^4.28.0",
     "@typescript-eslint/parser": "^4.28.0",
     "eslint": "^7.29.0",
