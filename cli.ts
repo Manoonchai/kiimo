@@ -2,7 +2,7 @@ import prompts from "prompts"
 import fs from "fs"
 import path from "path"
 import { generateLayout } from "./main"
-import replace from "replace-in-file"
+import { fixUnicode } from "./utils"
 
 const filenames = fs.readdirSync("input")
 const choices = filenames.map((filename) => ({
@@ -28,18 +28,7 @@ const choices = filenames.map((filename) => ({
   const outputFilename = `output/${layoutName}.keylayout`
   fs.writeFileSync(outputFilename, keylayoutXml)
 
-  // Replace Unicode
-  const options = {
-    files: outputFilename,
-    from: /%26%23x([0-9A-F]+)%3B/g,
-    to: "&#x$1;",
-  }
-
-  try {
-    replace.sync(options)
-  } catch (error) {
-    console.error("Error occurred:", error)
-  }
+  fixUnicode(outputFilename)
 
   console.log(`Output : ${outputFilename}`)
 })()

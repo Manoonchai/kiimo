@@ -25,7 +25,9 @@ export async function validateLayout(
   return !errors.length
 }
 
-export async function generateLayout(content: Record<string, unknown>) {
+export async function generateLayout(
+  content: Record<string, unknown>
+): Promise<string> {
   const layout = plainToClass(Layout, content)
   const errors = await validate(layout)
 

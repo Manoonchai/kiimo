@@ -2,7 +2,7 @@ import fs from "fs"
 import path from "path"
 import { js2xml, xml2js } from "xml-js"
 import { generateLayout, validateLayout } from "../main"
-import replace from "replace-in-file"
+import { fixUnicode } from "../utils"
 
 describe("validateLayout", () => {
   it("passes structure validation", async () => {
@@ -63,18 +63,7 @@ describe("generateLayout", () => {
       {}
     )
 
-    const options = {
-      files: "output/tmp.keylayout",
-      from: /%26%23x([0-9A-F]+)%3B/g,
-      to: "&#x$1;",
-    }
-
-    try {
-      const results = replace.sync(options)
-      console.log("Replacement results:", results)
-    } catch (error) {
-      console.error("Error occurred:", error)
-    }
+    fixUnicode("output/tmp.keylayout")
 
     expect(manoonchai.elements[0]).toEqual({
       doctype:
