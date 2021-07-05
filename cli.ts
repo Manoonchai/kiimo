@@ -4,6 +4,9 @@ import path from "path"
 import { generateLayout } from "./main"
 import { fixUnicode } from "./utils"
 
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+prompts.override(require("yargs").argv)
+
 const filenames = fs.readdirSync("input")
 const choices = filenames.map((filename) => ({
   title: filename,
@@ -13,18 +16,18 @@ const choices = filenames.map((filename) => ({
 ;(async () => {
   const response = await prompts({
     type: "select",
-    name: "value",
+    name: "input",
     message: "Pick input JSON file",
     choices,
   })
 
   const jsonInput = JSON.parse(
-    fs.readFileSync(path.join(process.cwd(), "input", response.value), "utf8")
+    fs.readFileSync(path.join(process.cwd(), "input", response.input), "utf8")
   )
 
   try {
     const keylayoutXml = await generateLayout(jsonInput)
-    const layoutName = response.value.split(".")[0]
+    const layoutName = response.input.split(".")[0]
     const outputFilename = `output/${layoutName}.keylayout`
     fs.writeFileSync(outputFilename, keylayoutXml)
 
