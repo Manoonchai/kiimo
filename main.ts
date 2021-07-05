@@ -41,12 +41,16 @@ export async function generateLayout(
       layerValue: "command anyShift? anyControl? anyOption?",
     },
     {
+      layerName: "Alt",
+      layerValue: "command anyShift? anyControl? anyOption?",
+    },
+    {
       layerName: "Option",
       layerValue: "anyOption anyShift? anyControl? command?",
     },
     {
-      layerName: "Shift+Option",
-      layerValue: "anyShift anyOption anyControl? command?",
+      layerName: "Control",
+      layerValue: "anyControl anyShift? anyOption? command?",
     },
     { layerName: "Caps", layerValue: "caps anyControl? command?" },
     {
@@ -294,12 +298,12 @@ export class Layout {
   language: string
 
   @ArrayNotEmpty()
-  @IsIn(["Base", "Shift", "AltGr"], { each: true })
-  layers: Layer[]
+  @IsIn(["Base", "Shift", "AltGr", "Command", "Option", "Control"], {
+    each: true,
+  })
+  layers: Array<"Base" | "Shift" | "AltGr" | "Command" | "Option" | "Control">
 
   @IsDefined()
   @IsNotEmptyObject()
   keys: Record<string, string[]>
 }
-
-type Layer = "Base" | "Shift" | "AltGr"
