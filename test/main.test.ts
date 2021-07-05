@@ -8,7 +8,7 @@ describe("validateLayout", () => {
   it("passes structure validation", async () => {
     const validJson = JSON.parse(
       fs.readFileSync(
-        path.join(process.cwd(), "input", "manoonchai.json"),
+        path.join(process.cwd(), "input", "Manoonchai.json"),
         "utf8"
       )
     )
@@ -18,7 +18,7 @@ describe("validateLayout", () => {
 
     const invalidJson = JSON.parse(
       fs.readFileSync(
-        path.join(process.cwd(), "input", "manoonchai.json"),
+        path.join(process.cwd(), "input", "Manoonchai.json"),
         "utf8"
       )
     )
@@ -38,7 +38,7 @@ describe("generateLayout", () => {
   it("receives layout json and returns keylayout xml correctly", async () => {
     const manoonchaiJson = JSON.parse(
       fs.readFileSync(
-        path.join(process.cwd(), "input", "manoonchai.json"),
+        path.join(process.cwd(), "input", "Manoonchai.json"),
         "utf8"
       )
     )
