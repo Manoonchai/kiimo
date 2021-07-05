@@ -11,24 +11,6 @@
     <keyMapSelect mapIndex="1">
       <modifier keys="anyShift anyControl? command?"/>
     </keyMapSelect>
-    <keyMapSelect mapIndex="2">
-      <modifier keys="anyOption anyControl? command?"/>
-    </keyMapSelect>
-    <keyMapSelect mapIndex="3">
-      <modifier keys="anyShift anyOption anyControl? command?"/>
-    </keyMapSelect>
-    <keyMapSelect mapIndex="4">
-      <modifier keys="caps anyControl? command?"/>
-    </keyMapSelect>
-    <keyMapSelect mapIndex="5">
-      <modifier keys="caps anyShift anyControl? command?"/>
-    </keyMapSelect>
-    <keyMapSelect mapIndex="6">
-      <modifier keys="caps anyOption anyControl? command?"/>
-    </keyMapSelect>
-    <keyMapSelect mapIndex="7">
-      <modifier keys="caps anyShift anyOption anyControl? command?"/>
-    </keyMapSelect>
   </modifierMap>
   <keyMapSet id="defaultKeyMapSet">
     <keyMap index="0">

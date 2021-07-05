@@ -1,6 +1,4 @@
 import "reflect-metadata"
-import fs from "fs"
-import path from "path"
 import { plainToClass } from "class-transformer"
 import {
   ArrayNotEmpty,
@@ -36,14 +34,33 @@ export async function generateLayout(
   }
 
   const defaultKeyMapSelects = [
-    "anyControl? command?",
-    "anyShift anyControl? command?",
-    "anyOption anyControl? command?",
-    "anyShift anyOption anyControl? command?",
-    "caps anyControl? command?",
-    "caps anyShift anyControl? command?",
-    "caps anyOption anyControl? command?",
-    "caps anyShift anyOption anyControl? command?",
+    { layerName: "Base", layerValue: "anyControl? command?" },
+    { layerName: "Shift", layerValue: "anyShift anyControl? command?" },
+    {
+      layerName: "Command",
+      layerValue: "command anyShift? anyControl? anyOption?",
+    },
+    {
+      layerName: "Option",
+      layerValue: "anyOption anyShift? anyControl? command?",
+    },
+    {
+      layerName: "Shift+Option",
+      layerValue: "anyShift anyOption anyControl? command?",
+    },
+    { layerName: "Caps", layerValue: "caps anyControl? command?" },
+    {
+      layerName: "Caps+Shift",
+      layerValue: "caps anyShift anyControl? command?",
+    },
+    {
+      layerName: "Caps+Option",
+      layerValue: "caps anyOption anyControl? command?",
+    },
+    {
+      layerName: "Caps+Shift+Option",
+      layerValue: "caps anyShift anyOption anyControl? command?",
+    },
   ]
 
   const defaultKeys = [
@@ -156,6 +173,19 @@ export async function generateLayout(
     { code: 126, output: "&#x001E;", unicode: true },
   ]
 
+  const layoutLayers = layout.layers
+  const layoutKeyMapSelects = layoutLayers.map((layoutLayerName) => {
+    const keyMapSelect = defaultKeyMapSelects.find(
+      (defaultKeyMapSelect) => defaultKeyMapSelect.layerName === layoutLayerName
+    )
+
+    if (!keyMapSelect) {
+      throw new Error(`Invalid layer : ${layoutLayerName}`)
+    }
+
+    return keyMapSelect.layerValue
+  })
+
   const document = {
     declaration: { attributes: { version: "1.1", encoding: "UTF-8" } },
     elements: [
@@ -194,7 +224,7 @@ export async function generateLayout(
             type: "element",
             name: "modifierMap",
             attributes: { id: "defaultModifierMap", defaultIndex: "0" },
-            elements: defaultKeyMapSelects.map((keyMapSelect, idx) => ({
+            elements: layoutKeyMapSelects.map((keyMapSelect, idx) => ({
               type: "element",
               name: "keyMapSelect",
               attributes: {
@@ -215,66 +245,35 @@ export async function generateLayout(
             type: "element",
             name: "keyMapSet",
             attributes: { id: "defaultKeyMapSet" },
-            elements: [
-              {
-                type: "element",
-                name: "keyMap",
-                attributes: { index: "0" },
-                elements: defaultKeys.map(({ code, output, unicode }) => {
-                  let overrideKey
+            elements: layout.layers.map((_, idx) => ({
+              type: "element",
+              name: "keyMap",
+              attributes: { index: idx },
+              elements: defaultKeys.map(({ code, output, unicode }) => {
+                let overrideKey
 
-                  // Override only index 0-50
-                  // Since some symbols are the same in numpad's position and should not be overridden
-                  if (code <= 50) {
-                    overrideKey = layout.keys[output]?.[0] || output
-                  } else {
-                    overrideKey = output
-                  }
+                // Override only index 0-50
+                // Since some symbols are the same in numpad's position and should not be overridden
+                if (code <= 50) {
+                  overrideKey = layout.keys[output]?.[idx] || output
+                } else {
+                  overrideKey = output
+                }
 
-                  if (overrideKey == "&") {
-                    overrideKey = escape("&#x0026;")
-                  }
+                if (overrideKey == "&") {
+                  overrideKey = escape("&#x0026;")
+                }
 
-                  if (unicode) {
-                    overrideKey = encodeURIComponent(output)
-                  }
-                  return {
-                    type: "element",
-                    name: "key",
-                    attributes: { code, output: overrideKey },
-                  }
-                }),
-              },
-              {
-                type: "element",
-                name: "keyMap",
-                attributes: { index: "1" },
-                elements: defaultKeys.map(({ code, output, unicode }) => {
-                  let overrideKey
-
-                  // Override only index 0-50
-                  // Since some symbols are the same in numpad's position and should not be overridden
-                  if (code <= 50) {
-                    overrideKey = layout.keys[output]?.[1] || output
-                  } else {
-                    overrideKey = output
-                  }
-
-                  if (overrideKey == "&") {
-                    overrideKey = escape("&#x0026;")
-                  }
-
-                  if (unicode) {
-                    overrideKey = encodeURIComponent(overrideKey)
-                  }
-                  return {
-                    type: "element",
-                    name: "key",
-                    attributes: { code, output: overrideKey },
-                  }
-                }),
-              },
-            ],
+                if (unicode) {
+                  overrideKey = encodeURIComponent(output)
+                }
+                return {
+                  type: "element",
+                  name: "key",
+                  attributes: { code, output: overrideKey },
+                }
+              }),
+            })),
           },
         ],
       },

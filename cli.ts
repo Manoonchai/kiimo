@@ -22,13 +22,17 @@ const choices = filenames.map((filename) => ({
     fs.readFileSync(path.join(process.cwd(), "input", response.value), "utf8")
   )
 
-  const keylayoutXml = await generateLayout(jsonInput)
+  try {
+    const keylayoutXml = await generateLayout(jsonInput)
+    const layoutName = response.value.split(".")[0]
+    const outputFilename = `output/${layoutName}.keylayout`
+    fs.writeFileSync(outputFilename, keylayoutXml)
 
-  const layoutName = response.value.split(".")[0]
-  const outputFilename = `output/${layoutName}.keylayout`
-  fs.writeFileSync(outputFilename, keylayoutXml)
+    fixUnicode(outputFilename)
 
-  fixUnicode(outputFilename)
-
-  console.log(`Output : ${outputFilename}`)
+    console.log(`Output : ${outputFilename}`)
+  } catch (e) {
+    console.error(e)
+    process.exit(1)
+  }
 })()
