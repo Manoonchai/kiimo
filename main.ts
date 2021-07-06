@@ -9,6 +9,7 @@ import {
   validate,
 } from "class-validator"
 import { js2xml } from "xml-js"
+import fs from "fs"
 
 export async function validateLayout(
   content: Record<string, unknown>
@@ -21,6 +22,34 @@ export async function validateLayout(
   }
 
   return !errors.length
+}
+
+export async function generateKlc(
+  content: Record<string, unknown>
+): Promise<void> {
+  const layout = plainToClass(Layout, content)
+  const errors = await validate(layout)
+
+  if (errors.length) {
+    throw new Error(errors.map((e) => e.toString()).join(", "))
+  }
+
+  const locales = {
+    Thai: "th-TH",
+  }
+
+  const lines = [
+    `KBD\t${layout.name}\t"${layout.language} ${layout.name} v${layout.version}"`,
+    `COPYRIGHT\t"MIT"`,
+    `COMPANY\t"${layout.os.windows.company}"`,
+    `LOCALENAME\t"${locales[layout.language]}"`,
+    `LOCALEID\t"${layout.os.windows.localeId}"`,
+    `VERSION\t${layout.version}`,
+  ]
+
+  fs.writeFileSync("./output/test.klc", lines.join("\n"), {
+    encoding: "utf8",
+  })
 }
 
 export async function generateLayout(
@@ -295,7 +324,8 @@ export class Layout {
   version: string
 
   @IsString()
-  language: string
+  @IsIn(["Thai"])
+  language: "Thai"
 
   @ArrayNotEmpty()
   @IsIn(["Base", "Shift", "AltGr", "Command", "Option", "Control"], {
@@ -306,4 +336,11 @@ export class Layout {
   @IsDefined()
   @IsNotEmptyObject()
   keys: Record<string, string[]>
+
+  @IsDefined()
+  os: OSAttributes
+}
+
+interface OSAttributes {
+  windows: { company: string; localeId: string }
 }

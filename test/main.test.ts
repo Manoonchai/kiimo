@@ -1,7 +1,7 @@
 import fs from "fs"
 import path from "path"
 import { js2xml, xml2js } from "xml-js"
-import { generateLayout, validateLayout } from "../main"
+import { generateKlc, generateLayout, validateLayout } from "../main"
 import { fixUnicode } from "../utils"
 
 describe("validateLayout", () => {
@@ -407,5 +407,37 @@ describe("generateLayout", () => {
     const keys = layout.elements[1].elements[2].elements[0].elements
     expect(keys[keys.length - 1].attributes["code"]).toEqual("126")
     expect(keys[keys.length - 1].attributes["output"]).toEqual("\u001e")
+  })
+})
+
+describe("generateKlc", () => {
+  it("exists", () => {
+    expect(generateKlc).toBeDefined()
+  })
+
+  it("generates .klc file", async () => {
+    const inputJson = JSON.parse(
+      fs.readFileSync(
+        path.join(process.cwd(), "input", "Manoonchai.json"),
+        "utf8"
+      )
+    )
+
+    await generateKlc(inputJson)
+
+    expect(fs.existsSync("output/test.klc")).toBeTruthy()
+
+    const lines = fs
+      .readFileSync("output/test.klc", "utf-8")
+      .split("\n")
+      .filter(Boolean)
+
+    // Assert file headers
+    expect(lines[0]).toEqual(`KBD\tManoonchai\t"Thai Manoonchai v1.0"`)
+    expect(lines[1]).toEqual(`COPYRIGHT\t"MIT"`)
+    expect(lines[2]).toEqual(`COMPANY\t"Manoonchai"`)
+    expect(lines[3]).toEqual(`LOCALENAME\t"th-TH"`)
+    expect(lines[4]).toEqual(`LOCALEID\t"0000041e"`)
+    expect(lines[5]).toEqual(`VERSION\t1.0`)
   })
 })
