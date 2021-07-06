@@ -47,7 +47,7 @@ export async function generateKlc(
     `VERSION\t${layout.version}`,
   ]
 
-  fs.writeFileSync("./output/test.klc", lines.join("\n"), {
+  fs.writeFileSync("./output/test.klc", lines.join("\n\n"), {
     encoding: "utf8",
   })
 }
