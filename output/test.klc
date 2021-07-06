@@ -9,3 +9,59 @@ LOCALENAME	"th-TH"
 LOCALEID	"0000041e"
 
 VERSION	1.0
+
+SHIFTSTATE
+
+0	// Column 4 : Base
+1	// Column 5 : Shift
+
+LAYOUT
+0b	0	0	0	)
+02	1	0	1	!
+03	2	0	2	@
+04	3	0	3	#
+05	4	0	4	$
+06	5	0	5	%
+07	6	0	6	^
+08	7	0	7	&
+09	8	0	8	*
+0a	9	0	9	(
+0c	OEM_MINUS	0	-	_
+0d	OEM_PLUS	0	=	+
+10	Q	0	ใ	ฒ
+11	W	0	ต	ฏ
+12	E	0	ห	ซ
+13	R	0	ล	ญ
+14	T	0	ส	ฟ
+15	Y	0	ป	ฉ
+16	U	0	ั	ึ
+17	I	0	ก	ธ
+18	O	0	ิ	ฐ
+19	P	0	บ	ฎ
+1a	OEM_4	0	็	ฆ
+1b	OEM_6	0	ฬ	ฑ
+1e	A	0	ง	ษ
+1f	S	0	เ	ถ
+20	D	0	ร	แ
+21	F	0	น	ช
+22	G	0	ม	พ
+23	H	0	อ	ผ
+24	J	0	า	ำ
+25	K	0	่	ข
+26	L	0	้	โ
+27	OEM_1	0	ว	ภ
+28	OEM_7	0	ื	"
+29	OEM_3	0	`	~
+2b	OEM_5	0	ฯ	ฌ
+2c	Z	0	ุ	ฤ
+2d	X	0	ไ	ฝ
+2e	C	0	ท	ๆ
+2f	V	0	ย	ณ
+30	B	0	จ	๊
+31	N	0	ค	๋
+32	M	0	ี	์
+33	OEM_COMMA	0	ด	ศ
+34	OEM_PERIOD	0	ะ	ฮ
+35	OEM_2	0	ู	?
+
+ENDKBD

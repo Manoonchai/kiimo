@@ -439,5 +439,36 @@ describe("generateKlc", () => {
     expect(lines[3]).toEqual(`LOCALENAME\t"th-TH"`)
     expect(lines[4]).toEqual(`LOCALEID\t"0000041e"`)
     expect(lines[5]).toEqual(`VERSION\t1.0`)
+
+    // Assert Shiftstate
+    // public enum ShiftState : int {
+    //   Base            = 0,                    // 0
+    //   Shft            = 1,                    // 1
+    //   Ctrl            = 2,                    // 2
+    //   ShftCtrl        = Shft | Ctrl,          // 3
+    //   Menu            = 4,                    // 4 -- NOT USED
+    //   ShftMenu        = Shft | Menu,          // 5 -- NOT USED
+    //   MenuCtrl        = Menu | Ctrl,          // 6
+    //   ShiftMenuCtrl   = Shft | Menu | Ctrl,   // 7
+    // }
+
+    // 0	//Column 4
+    // 1	//Column 5 : Shft
+    // 2	//Column 6 :       Ctrl
+    // 6	//Column 7 :       Ctrl Alt
+    // 7	//Column 8 : Shft  Ctrl Alt
+
+    expect(lines[6]).toEqual(`SHIFTSTATE`)
+    expect(lines[7]).toEqual(`0\t// Column 4 : Base`)
+    expect(lines[8]).toEqual(`1\t// Column 5 : Shift`)
+
+    // Assert Layout
+    expect(lines[9]).toEqual(`LAYOUT`)
+
+    expect(lines[10]).toEqual(`0b\t0\t0\t0\t)`)
+    expect(lines[11]).toEqual(`02\t1\t0\t1\t!`)
+
+    // Assert ENDKBD
+    expect(lines.slice(-1)).toEqual(["ENDKBD"])
   })
 })
