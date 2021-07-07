@@ -428,8 +428,8 @@ describe("generateKlc", () => {
     expect(fs.existsSync("output/test.klc")).toBeTruthy()
 
     const lines = fs
-      .readFileSync("output/test.klc", "utf-8")
-      .split("\n")
+      .readFileSync("output/test.klc", "utf16le")
+      .split("\r\n")
       .filter(Boolean)
 
     // Assert file headers

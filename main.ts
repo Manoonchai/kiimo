@@ -133,13 +133,13 @@ export async function generateKlc(
   fs.writeFileSync(
     "./output/test.klc",
     [
-      lines.join("\n\n"),
-      shiftStateLines.join("\n"),
-      layoutLines.join("\n"),
+      lines.join("\r\n\r\n"),
+      shiftStateLines.join("\r\n"),
+      layoutLines.join("\r\n"),
       "ENDKBD",
-    ].join("\n\n"),
+    ].join("\r\n\r\n"),
     {
-      encoding: "utf8",
+      encoding: "utf16le",
     }
   )
 }
