@@ -31,12 +31,12 @@ export async function generateKlc(
     Shift: 1,
     Ctrl: 2,
     "Shift+Ctrl": 3,
-    Alt: 4,
+    Alt: 4, // Layer number 4 is not supported in KLC
     "Shift+Alt": 5,
     "Alt+Ctrl": 6,
     "Shift+Alt+Ctrl": 7,
     // From macOS config
-    Command: 4,
+    Command: 4, // Layer number 4 is not supported in KLC
     AltGr: 7,
     Option: 7,
     Control: 2,
@@ -101,9 +101,23 @@ export async function generateKlc(
     `VERSION\t${layout.version}`,
   ]
 
-  const shiftStateLines: Array<string> = layout.layers.map((layer, idx) => {
+  const shiftStateLines: Array<string> = []
+
+  layout.layers.forEach((layer, idx) => {
     if (layer in klcShiftStates) {
-      return `${klcShiftStates[layer]}\t// Column ${idx + 4} : ${layer}`
+      // Filter out layer 4 (Command)
+      if (klcShiftStates[layer] === 4) {
+        layout.keys = Object.fromEntries(
+          Object.entries(layout.keys).map(([key, keys]) => {
+            keys.splice(idx, 1)
+            return [key, keys]
+          })
+        )
+      } else {
+        shiftStateLines.push(
+          `${klcShiftStates[layer]}\t// Column ${idx + 4} : ${layer}`
+        )
+      }
     } else {
       throw new Error("Layer not valid")
     }
@@ -125,7 +139,7 @@ export async function generateKlc(
         lines.join("\r\n\r\n"),
         shiftStateLines.join("\r\n"),
         layoutLines.join("\r\n"),
-        "ENDKBD",
+        "ENDKBD\r\n",
       ].join("\r\n\r\n"),
     {
       encoding: "utf16le",
