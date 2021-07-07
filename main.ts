@@ -6,6 +6,7 @@ import {
   IsIn,
   IsNotEmptyObject,
   IsString,
+  MaxLength,
   validate,
 } from "class-validator"
 import { js2xml } from "xml-js"
@@ -32,6 +33,14 @@ export async function generateKlc(
 
   if (errors.length) {
     throw new Error(errors.map((e) => e.toString()).join(", "))
+  }
+
+  const windowsErrors = await validate(
+    plainToClass(WindowsAttributes, layout.os.windows)
+  )
+
+  if (windowsErrors.length) {
+    throw new Error(windowsErrors.map((e) => e.toString()).join(", "))
   }
 
   const klcLocales = {
@@ -435,5 +444,19 @@ export class Layout {
 }
 
 interface OSAttributes {
-  windows: { company: string; localeId: string; installerName: string }
+  windows: WindowsAttributes
+}
+
+class WindowsAttributes {
+  @IsString()
+  company: string
+
+  @IsString()
+  localeId: string
+
+  @IsString()
+  @MaxLength(8, {
+    message: "Installer name cannot be longer than 8 characters",
+  })
+  installerName: string
 }
