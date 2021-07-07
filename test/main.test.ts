@@ -1,7 +1,9 @@
 import fs from "fs"
 import path from "path"
 import { js2xml, xml2js } from "xml-js"
-import { generateLayout, validateLayout } from "../main"
+import { validateLayout } from "../main"
+import { generateKeylayout } from "../generateKeylayout"
+import { generateKlc } from "../generateKlc"
 import { fixUnicode } from "../utils"
 
 describe("validateLayout", () => {
@@ -43,7 +45,7 @@ describe("generateLayout", () => {
       )
     )
 
-    const manoonchaiXml = await generateLayout(manoonchaiJson)
+    const manoonchaiXml = await generateKeylayout(manoonchaiJson)
 
     expect(manoonchaiXml).toBeDefined()
 
@@ -407,5 +409,69 @@ describe("generateLayout", () => {
     const keys = layout.elements[1].elements[2].elements[0].elements
     expect(keys[keys.length - 1].attributes["code"]).toEqual("126")
     expect(keys[keys.length - 1].attributes["output"]).toEqual("\u001e")
+  })
+})
+
+describe("generateKlc", () => {
+  it("exists", () => {
+    expect(generateKlc).toBeDefined()
+  })
+
+  it("generates .klc file", async () => {
+    const inputJson = JSON.parse(
+      fs.readFileSync(
+        path.join(process.cwd(), "input", "Manoonchai.json"),
+        "utf8"
+      )
+    )
+
+    const filepath = "output/test.klc"
+    await generateKlc(inputJson, filepath)
+
+    expect(fs.existsSync(filepath)).toBeTruthy()
+
+    const lines = fs
+      .readFileSync(filepath, "utf16le")
+      .split("\r\n")
+      .filter(Boolean)
+
+    // Assert file headers
+    expect(lines[0]).toEqual(`\ufeffKBD\tThaiMnc\t"Thai Manoonchai v1.0"`)
+    expect(lines[1]).toEqual(`COPYRIGHT\t"MIT"`)
+    expect(lines[2]).toEqual(`COMPANY\t"Manoonchai"`)
+    expect(lines[3]).toEqual(`LOCALENAME\t"th-TH"`)
+    expect(lines[4]).toEqual(`LOCALEID\t"0000041e"`)
+    expect(lines[5]).toEqual(`VERSION\t1.0`)
+
+    // Assert Shiftstate
+    // public enum ShiftState : int {
+    //   Base            = 0,                    // 0
+    //   Shft            = 1,                    // 1
+    //   Ctrl            = 2,                    // 2
+    //   ShftCtrl        = Shft | Ctrl,          // 3
+    //   Menu            = 4,                    // 4 -- NOT USED
+    //   ShftMenu        = Shft | Menu,          // 5 -- NOT USED
+    //   MenuCtrl        = Menu | Ctrl,          // 6
+    //   ShiftMenuCtrl   = Shft | Menu | Ctrl,   // 7
+    // }
+
+    // 0	//Column 4
+    // 1	//Column 5 : Shft
+    // 2	//Column 6 :       Ctrl
+    // 6	//Column 7 :       Ctrl Alt
+    // 7	//Column 8 : Shft  Ctrl Alt
+
+    expect(lines[6]).toEqual(`SHIFTSTATE`)
+    expect(lines[7]).toEqual(`0\t// Column 4 : Base`)
+    expect(lines[8]).toEqual(`1\t// Column 5 : Shift`)
+
+    // Assert Layout
+    expect(lines[9]).toEqual(`LAYOUT`)
+
+    expect(lines[10]).toEqual(`0b\t0\t0\t0\t)`)
+    expect(lines[11]).toEqual(`02\t1\t0\t1\t!`)
+
+    // Assert ENDKBD
+    expect(lines.slice(-1)).toEqual(["ENDKBD"])
   })
 })

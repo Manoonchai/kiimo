@@ -3,6 +3,14 @@
   "version": "1.0",
   "language": "Thai",
   "layers": ["Base", "Shift"],
+  "license": "MIT",
+  "os": {
+    "windows": {
+      "installerName": "ThaiMnc",
+      "company": "Manoonchai",
+      "localeId": "0000041e"
+    }
+  },
   "keys": {
     "`": ["`", "~"],
     "1": ["1", "!"],
