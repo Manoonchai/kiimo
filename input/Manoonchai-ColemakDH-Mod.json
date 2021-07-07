@@ -5,6 +5,7 @@
   "layers": ["Base", "Shift", "Command", "Option", "Control"],
   "os": {
     "windows": {
+      "installerName": "Mnc-DH",
       "company": "Manoonchai",
       "localeId": "0000041e"
     }

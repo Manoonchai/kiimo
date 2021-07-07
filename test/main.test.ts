@@ -1,7 +1,9 @@
 import fs from "fs"
 import path from "path"
 import { js2xml, xml2js } from "xml-js"
-import { generateKlc, generateLayout, validateLayout } from "../main"
+import { validateLayout } from "../main"
+import { generateKeylayout } from "../generateKeylayout"
+import { generateKlc } from "../generateKlc"
 import { fixUnicode } from "../utils"
 
 describe("validateLayout", () => {
@@ -43,7 +45,7 @@ describe("generateLayout", () => {
       )
     )
 
-    const manoonchaiXml = await generateLayout(manoonchaiJson)
+    const manoonchaiXml = await generateKeylayout(manoonchaiJson)
 
     expect(manoonchaiXml).toBeDefined()
 
@@ -423,12 +425,13 @@ describe("generateKlc", () => {
       )
     )
 
-    await generateKlc(inputJson)
+    const filepath = "output/test.klc"
+    await generateKlc(inputJson, filepath)
 
-    expect(fs.existsSync("output/test.klc")).toBeTruthy()
+    expect(fs.existsSync(filepath)).toBeTruthy()
 
     const lines = fs
-      .readFileSync("output/test.klc", "utf16le")
+      .readFileSync(filepath, "utf16le")
       .split("\r\n")
       .filter(Boolean)
 
