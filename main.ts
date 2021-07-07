@@ -105,7 +105,7 @@ export async function generateKlc(
   }
 
   const lines = [
-    `KBD\t${layout.name}\t"${layout.language} ${layout.name} v${layout.version}"`,
+    `KBD\t${layout.os.windows.installerName}\t"${layout.language} ${layout.name} v${layout.version}"`,
     `COPYRIGHT\t"MIT"`,
     `COMPANY\t"${layout.os.windows.company}"`,
     `LOCALENAME\t"${klcLocales[layout.language]}"`,
@@ -132,12 +132,13 @@ export async function generateKlc(
 
   fs.writeFileSync(
     "./output/test.klc",
-    [
-      lines.join("\r\n\r\n"),
-      shiftStateLines.join("\r\n"),
-      layoutLines.join("\r\n"),
-      "ENDKBD",
-    ].join("\r\n\r\n"),
+    "\ufeff" +
+      [
+        lines.join("\r\n\r\n"),
+        shiftStateLines.join("\r\n"),
+        layoutLines.join("\r\n"),
+        "ENDKBD",
+      ].join("\r\n\r\n"),
     {
       encoding: "utf16le",
     }
@@ -434,5 +435,5 @@ export class Layout {
 }
 
 interface OSAttributes {
-  windows: { company: string; localeId: string }
+  windows: { company: string; localeId: string; installerName: string }
 }

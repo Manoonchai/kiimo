@@ -6,6 +6,7 @@
   "license": "MIT",
   "os": {
     "windows": {
+      "installerName": "ThaiMnc",
       "company": "Manoonchai",
       "localeId": "0000041e"
     }

@@ -433,7 +433,7 @@ describe("generateKlc", () => {
       .filter(Boolean)
 
     // Assert file headers
-    expect(lines[0]).toEqual(`KBD\tManoonchai\t"Thai Manoonchai v1.0"`)
+    expect(lines[0]).toEqual(`\ufeffKBD\tThaiMnc\t"Thai Manoonchai v1.0"`)
     expect(lines[1]).toEqual(`COPYRIGHT\t"MIT"`)
     expect(lines[2]).toEqual(`COMPANY\t"Manoonchai"`)
     expect(lines[3]).toEqual(`LOCALENAME\t"th-TH"`)
