@@ -368,18 +368,18 @@
       <key code="15" output="p"/>
       <key code="16" output="j"/>
       <key code="17" output="b"/>
-      <key code="18" output="1"/>
-      <key code="19" output="2"/>
-      <key code="20" output="3"/>
-      <key code="21" output="4"/>
-      <key code="22" output="6"/>
-      <key code="23" output="5"/>
+      <key code="18" output="๑"/>
+      <key code="19" output="๒"/>
+      <key code="20" output="๓"/>
+      <key code="21" output="๔"/>
+      <key code="22" output="๖"/>
+      <key code="23" output="๕"/>
       <key code="24" output="="/>
-      <key code="25" output="9"/>
-      <key code="26" output="7"/>
+      <key code="25" output="๙"/>
+      <key code="26" output="๗"/>
       <key code="27" output="-"/>
-      <key code="28" output="8"/>
-      <key code="29" output="0"/>
+      <key code="28" output="๘"/>
+      <key code="29" output="๐"/>
       <key code="30" output="]"/>
       <key code="31" output="y"/>
       <key code="32" output="l"/>

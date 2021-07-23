@@ -120,7 +120,7 @@ describe("generateLayout", () => {
       type: "element",
       name: "modifierMap",
       attributes: { id: "defaultModifierMap", defaultIndex: "0" },
-      elements: [
+      elements: expect.arrayContaining([
         {
           type: "element",
           name: "keyMapSelect",
@@ -153,7 +153,7 @@ describe("generateLayout", () => {
             },
           ],
         },
-      ],
+      ]),
     })
 
     // <keyMapSet id="defaultKeyMapSet">
@@ -371,7 +371,7 @@ describe("generateLayout", () => {
       type: "element",
       name: "keyMapSet",
       attributes: { id: "defaultKeyMapSet" },
-      elements: [
+      elements: expect.arrayContaining([
         {
           type: "element",
           name: "keyMap",
@@ -396,7 +396,7 @@ describe("generateLayout", () => {
             }))
           ),
         },
-      ],
+      ]),
     })
 
     // Test if escaped unicode works
@@ -436,12 +436,14 @@ describe("generateKlc", () => {
       .filter(Boolean)
 
     // Assert file headers
-    expect(lines[0]).toEqual(`\ufeffKBD\tThaiMnc\t"Thai Manoonchai v1.0"`)
+    expect(lines[0]).toEqual(
+      expect.stringContaining(`\ufeffKBD\tThaiMnc\t"Thai Manoonchai v1.0`)
+    )
     expect(lines[1]).toEqual(`COPYRIGHT\t"MIT"`)
     expect(lines[2]).toEqual(`COMPANY\t"Manoonchai"`)
     expect(lines[3]).toEqual(`LOCALENAME\t"th-TH"`)
     expect(lines[4]).toEqual(`LOCALEID\t"0000041e"`)
-    expect(lines[5]).toEqual(`VERSION\t1.0`)
+    expect(lines[5]).toEqual(expect.stringContaining(`VERSION\t1.0`))
 
     // Assert Shiftstate
     // public enum ShiftState : int {
@@ -464,12 +466,13 @@ describe("generateKlc", () => {
     expect(lines[6]).toEqual(`SHIFTSTATE`)
     expect(lines[7]).toEqual(`0\t// Column 4 : Base`)
     expect(lines[8]).toEqual(`1\t// Column 5 : Shift`)
+    expect(lines[9]).toEqual(`7\t// Column 6 : Option`)
 
     // Assert Layout
-    expect(lines[9]).toEqual(`LAYOUT`)
+    expect(lines[10]).toEqual(`LAYOUT`)
 
-    expect(lines[10]).toEqual(`0b\t0\t0\t0\t)`)
-    expect(lines[11]).toEqual(`02\t1\t0\t1\t!`)
+    expect(lines[11]).toEqual(`0b\t0\t0\t0\t)\t๐`)
+    expect(lines[12]).toEqual(`02\t1\t0\t1\t!\t๑`)
 
     // Assert ENDKBD
     expect(lines.slice(-1)).toEqual(["ENDKBD"])
