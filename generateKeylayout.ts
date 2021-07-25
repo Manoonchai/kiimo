@@ -29,6 +29,10 @@ export async function generateKeylayout(
       layerValue: "anyOption anyShift? anyControl? command?",
     },
     {
+      layerName: "AltGr",
+      layerValue: "anyOption anyShift? anyControl? command?",
+    },
+    {
       layerName: "Control",
       layerValue: "anyControl anyShift? anyOption? command?",
     },

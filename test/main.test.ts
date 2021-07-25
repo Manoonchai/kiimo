@@ -466,7 +466,7 @@ describe("generateKlc", () => {
     expect(lines[6]).toEqual(`SHIFTSTATE`)
     expect(lines[7]).toEqual(`0\t// Column 4 : Base`)
     expect(lines[8]).toEqual(`1\t// Column 5 : Shift`)
-    expect(lines[9]).toEqual(`7\t// Column 6 : Option`)
+    expect(lines[9]).toEqual(`6\t// Column 6 : AltGr`)
 
     // Assert Layout
     expect(lines[10]).toEqual(`LAYOUT`)

@@ -37,7 +37,7 @@ export async function generateKlc(
     "Shift+Alt+Ctrl": 7,
     // From macOS config
     Command: 4, // Layer number 4 is not supported in KLC
-    AltGr: 7,
+    AltGr: 6,
     Option: 7,
     Control: 2,
   }

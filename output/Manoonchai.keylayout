@@ -235,24 +235,24 @@
       <key code="126" output="&#x001E;"/>
     </keyMap>
     <keyMap index="2">
-      <key code="0" output="ง"/>
-      <key code="1" output="เ"/>
-      <key code="2" output="ร"/>
-      <key code="3" output="น"/>
-      <key code="4" output="อ"/>
-      <key code="5" output="ม"/>
-      <key code="6" output="ุ"/>
-      <key code="7" output="ไ"/>
-      <key code="8" output="ท"/>
-      <key code="9" output="ย"/>
+      <key code="0" output="◌"/>
+      <key code="1" output="๏"/>
+      <key code="2" output="๛"/>
+      <key code="3" output="฿"/>
+      <key code="4" output="ํ"/>
+      <key code="5" output="g"/>
+      <key code="6" output="ฦ"/>
+      <key code="7" output="x"/>
+      <key code="8" output="๚"/>
+      <key code="9" output="v"/>
       <key code="10" output="§"/>
-      <key code="11" output="จ"/>
-      <key code="12" output="ใ"/>
-      <key code="13" output="ต"/>
-      <key code="14" output="ห"/>
-      <key code="15" output="ล"/>
-      <key code="16" output="ป"/>
-      <key code="17" output="ส"/>
+      <key code="11" output="b"/>
+      <key code="12" output="q"/>
+      <key code="13" output="w"/>
+      <key code="14" output="e"/>
+      <key code="15" output="r"/>
+      <key code="16" output="y"/>
+      <key code="17" output="t"/>
       <key code="18" output="๑"/>
       <key code="19" output="๒"/>
       <key code="20" output="๓"/>
@@ -265,24 +265,24 @@
       <key code="27" output="-"/>
       <key code="28" output="๘"/>
       <key code="29" output="๐"/>
-      <key code="30" output="ฬ"/>
-      <key code="31" output="ิ"/>
-      <key code="32" output="ั"/>
-      <key code="33" output="็"/>
-      <key code="34" output="ก"/>
-      <key code="35" output="บ"/>
+      <key code="30" output="]"/>
+      <key code="31" output="o"/>
+      <key code="32" output="ฺ"/>
+      <key code="33" output="["/>
+      <key code="34" output="i"/>
+      <key code="35" output="p"/>
       <key code="36" output="&#x000D;"/>
-      <key code="37" output="้"/>
-      <key code="38" output="า"/>
-      <key code="39" output="ื"/>
-      <key code="40" output="่"/>
-      <key code="41" output="ว"/>
-      <key code="42" output="ฯ"/>
-      <key code="43" output="ด"/>
-      <key code="44" output="ู"/>
-      <key code="45" output="ค"/>
-      <key code="46" output="ี"/>
-      <key code="47" output="ะ"/>
+      <key code="37" output="l"/>
+      <key code="38" output="ๅ"/>
+      <key code="39" output="'"/>
+      <key code="40" output="ฃ"/>
+      <key code="41" output=";"/>
+      <key code="42" output="\"/>
+      <key code="43" output=","/>
+      <key code="44" output="/"/>
+      <key code="45" output="ฅ"/>
+      <key code="46" output="๎"/>
+      <key code="47" output="."/>
       <key code="48" output="&#x0009;"/>
       <key code="49" output=" "/>
       <key code="50" output="`"/>
