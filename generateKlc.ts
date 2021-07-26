@@ -128,7 +128,9 @@ export async function generateKlc(
   const layoutLines = ["LAYOUT"]
 
   Object.entries(klfDefaultLayout).forEach(([key, value]) => {
-    const extensions = layout.layers.map((_, idx) => layout.keys[key][idx])
+    const extensions = layout.layers.map((_, idx) => {
+      return layout.keys[key][idx] || "-1"
+    })
     layoutLines.push([value, "0", ...extensions].join("\t"))
   })
 

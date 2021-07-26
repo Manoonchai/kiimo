@@ -243,7 +243,8 @@ export async function generateKeylayout(
                 // Override only index 0-50
                 // Since some symbols are the same in numpad's position and should not be overridden
                 if (code <= 50) {
-                  overrideKey = layout.keys[output]?.[idx] || output
+                  const key = layout.keys[output]?.[idx]
+                  overrideKey = typeof key !== "undefined" ? key : output
                 } else {
                   overrideKey = output
                 }
