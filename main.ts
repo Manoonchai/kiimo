@@ -35,10 +35,15 @@ export class Layout {
   language: "Thai"
 
   @ArrayNotEmpty()
-  @IsIn(["Base", "Shift", "AltGr", "Command", "Option", "Control"], {
-    each: true,
-  })
-  layers: Array<"Base" | "Shift" | "AltGr" | "Command" | "Option" | "Control">
+  @IsIn(
+    ["Base", "Shift", "AltGr", "Command", "Option", "Control", "ShiftAltGr"],
+    {
+      each: true,
+    }
+  )
+  layers: Array<
+    "Base" | "Shift" | "AltGr" | "Command" | "Option" | "Control" | "ShiftAltGr"
+  >
 
   @IsDefined()
   @IsNotEmptyObject()

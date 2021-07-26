@@ -33,6 +33,10 @@ export async function generateKeylayout(
       layerValue: "anyOption anyShift? anyControl? command?",
     },
     {
+      layerName: "ShiftAltGr",
+      layerValue: "anyOption anyShift anyControl? command?",
+    },
+    {
       layerName: "Control",
       layerValue: "anyControl anyShift? anyOption? command?",
     },
@@ -251,6 +255,12 @@ export async function generateKeylayout(
 
                 if (overrideKey == "&") {
                   overrideKey = escape("&#x0026;")
+                }
+
+                if (overrideKey == ">") {
+                  overrideKey = "&gt;"
+                } else if (overrideKey == "<") {
+                  overrideKey = "&lt;"
                 }
 
                 if (unicode) {

@@ -469,10 +469,11 @@ describe("generateKlc", () => {
     expect(lines[9]).toEqual(`6\t// Column 6 : AltGr`)
 
     // Assert Layout
-    expect(lines[10]).toEqual(`LAYOUT`)
+    const layoutLineIdx = lines.indexOf(`LAYOUT`)
+    expect(lines[layoutLineIdx]).toEqual(`LAYOUT`)
 
-    expect(lines[11]).toEqual(`0b\t0\t0\t0\t)\t๐`)
-    expect(lines[12]).toEqual(`02\t1\t0\t1\t!\t๑`)
+    expect(lines[layoutLineIdx + 1]).toEqual(`0b\t0\t0\t0\t)\t๐\t-1`)
+    expect(lines[layoutLineIdx + 2]).toEqual(`02\t1\t0\t1\t!\t๑\t-1`)
 
     // Assert ENDKBD
     expect(lines.slice(-1)).toEqual(["ENDKBD"])
