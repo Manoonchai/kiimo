@@ -3,6 +3,7 @@ import fs from "fs"
 import path from "path"
 import { generateKeylayout } from "./generateKeylayout"
 import { generateKlc } from "./generateKlc"
+import { generateXkb } from "./generateXkb"
 import { fixUnicode } from "./utils"
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -46,6 +47,18 @@ const choices = filenames.map((filename) => ({
     const layoutName = response.input.split(".")[0]
     const outputFilename = `output/${layoutName}.klc`
     await generateKlc(jsonInput, outputFilename)
+
+    console.log(`Output : ${outputFilename}`)
+  } catch (e) {
+    console.error(e)
+    process.exit(1)
+  }
+
+    // Xkb
+  try {
+    const layoutName = response.input.split(".")[0]
+    const outputFilename = `output/${layoutName}_xkb`
+    await generateXkb(jsonInput, outputFilename)
 
     console.log(`Output : ${outputFilename}`)
   } catch (e) {
