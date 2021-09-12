@@ -174,7 +174,7 @@
       <key code="36" output="&#x000D;"/>
       <key code="37" output="โ"/>
       <key code="38" output="ำ"/>
-      <key code="39" output="&quot;"/>
+      <key code="39" output="&#x0022;"/>
       <key code="40" output="ข"/>
       <key code="41" output="ภ"/>
       <key code="42" output="ฌ"/>
@@ -283,7 +283,7 @@
       <key code="36" output="&#x000D;"/>
       <key code="37" output="i"/>
       <key code="38" output="n"/>
-      <key code="39" output="'"/>
+      <key code="39" output="&#x0027;"/>
       <key code="40" output="e"/>
       <key code="41" output="o"/>
       <key code="42" output="\"/>
@@ -392,7 +392,7 @@
       <key code="36" output="&#x000D;"/>
       <key code="37" output="i"/>
       <key code="38" output="ๅ"/>
-      <key code="39" output="'"/>
+      <key code="39" output="&#x0027;"/>
       <key code="40" output="ฃ"/>
       <key code="41" output="o"/>
       <key code="42" output="\"/>
@@ -501,7 +501,7 @@
       <key code="36" output="&#x000D;"/>
       <key code="37" output="i"/>
       <key code="38" output="n"/>
-      <key code="39" output="'"/>
+      <key code="39" output="&#x0027;"/>
       <key code="40" output="e"/>
       <key code="41" output="o"/>
       <key code="42" output="\"/>
@@ -610,7 +610,7 @@
       <key code="36" output="&#x000D;"/>
       <key code="37" output=""/>
       <key code="38" output=""/>
-      <key code="39" output="&quot;"/>
+      <key code="39" output="&#x0022;"/>
       <key code="40" output=""/>
       <key code="41" output=""/>
       <key code="42" output="|"/>

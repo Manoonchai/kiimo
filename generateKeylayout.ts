@@ -257,6 +257,14 @@ export async function generateKeylayout(
                   overrideKey = escape("&#x0026;")
                 }
 
+                if (overrideKey == "'") {
+                  overrideKey = escape("&#x0027;")
+                }
+
+                if (overrideKey == "\"") {
+                  overrideKey = escape("&#x0022;")
+                }
+
                 if (overrideKey == ">") {
                   overrideKey = "&gt;"
                 } else if (overrideKey == "<") {

@@ -302,7 +302,7 @@ describe("generateLayout", () => {
       { code: "36", output: escape("&#x000D;") },
       { code: "37", output: "โ" },
       { code: "38", output: "ำ" },
-      { code: "39", output: '"' },
+      { code: "39", output: escape("&#x0022;") },
       { code: "40", output: "ข" },
       { code: "41", output: "ภ" },
       { code: "42", output: "ฌ" },
