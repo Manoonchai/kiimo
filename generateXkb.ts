@@ -23,11 +23,12 @@ export async function generateXkb(
   }
 
   function toHex(str: string) {
-    var hex, i;
-    var result = "";
-    for (i=0; i<str.length; i++) {
-        hex = str.charCodeAt(i).toString(16);
-        result += " 0x1"+("000000"+hex).slice(-6);
+    let hex, i;
+    let result = "";
+
+    for (i = 0; i < str.length; i++) {
+      hex = str.charCodeAt(i).toString(16);
+      result += " 0x1" + ("000000" + hex).slice(-6);
     }
     return result;
   }
@@ -92,28 +93,23 @@ export async function generateXkb(
   ]
 
   const layoutLines = [""]
-  Object.entries(klfDefaultLayout).forEach(([key, value]) => 
-  {
-    const extensions = layout.layers.map
-    (
-      (_, idx) => 
-        {
-          return (toHex(layout.keys[key][idx]) || "voidsymbol")+((idx<3)?",":"")
-        }
-    )
+  Object.entries(klfDefaultLayout).forEach(([key, value]) => {
+    const extensions = layout.layers.map((_, idx) => {
+      return (toHex(layout.keys[key][idx]) || "voidsymbol") + ((idx < 3) ? "," : "")
+    })
 
     extensions.push("] };")
-    layoutLines.push([value,...extensions].join(" "))
+    layoutLines.push([value, ...extensions].join(" "))
   })
 
   fs.writeFileSync(
     outputPath,
     "\ufeff" +
-      [
-        lines.join("\n"),
-        layoutLines.join("\n    "),
-        "    include \"level3(ralt_switch)\"\n};",
-      ].join("\n\n"),
+    [
+      lines.join("\n"),
+      layoutLines.join("\n    "),
+      "    include \"level3(ralt_switch)\"\n};",
+    ].join("\n\n"),
     {
       encoding: "utf8",
     }
