@@ -466,14 +466,14 @@ describe("generateKlc", () => {
     expect(lines[6]).toEqual(`SHIFTSTATE`)
     expect(lines[7]).toEqual(`0\t// Column 4 : Base`)
     expect(lines[8]).toEqual(`1\t// Column 5 : Shift`)
-    expect(lines[9]).toEqual(`6\t// Column 6 : AltGr`)
+    expect(lines[9]).toEqual(`6\t// Column 7 : AltGr`)
 
     // Assert Layout
     const layoutLineIdx = lines.indexOf(`LAYOUT`)
     expect(lines[layoutLineIdx]).toEqual(`LAYOUT`)
 
-    expect(lines[layoutLineIdx + 1]).toEqual(`0b\t0\t0\t0\t)\t๐\t-1`)
-    expect(lines[layoutLineIdx + 2]).toEqual(`02\t1\t0\t1\t!\t๑\t-1`)
+    expect(lines[layoutLineIdx + 1]).toEqual(`0b\t0\t0\t0\t)\t๐\t0\t-1\t-1`)
+    expect(lines[layoutLineIdx + 2]).toEqual(`02\t1\t0\t1\t!\t๑\t1\t-1\t-1`)
 
     // Assert ENDKBD
     expect(lines.slice(-1)).toEqual(["ENDKBD"])
