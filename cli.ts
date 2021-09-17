@@ -15,54 +15,54 @@ const choices = filenames.map((filename) => ({
   value: filename,
 }))
 
-;(async () => {
-  const response = await prompts({
-    type: "select",
-    name: "input",
-    message: "Pick input JSON file",
-    choices,
-  })
+  ; (async () => {
+    const response = await prompts({
+      type: "select",
+      name: "input",
+      message: "Pick input JSON file",
+      choices,
+    })
 
-  const jsonInput = JSON.parse(
-    fs.readFileSync(path.join(process.cwd(), "input", response.input), "utf8")
-  )
+    const jsonInput = JSON.parse(
+      fs.readFileSync(path.join(process.cwd(), "input", response.input), "utf8")
+    )
 
-  // Keylayout
-  try {
-    const keylayoutXml = await generateKeylayout(jsonInput)
-    const layoutName = response.input.split(".")[0]
-    const outputFilename = `output/${layoutName}.keylayout`
-    fs.writeFileSync(outputFilename, keylayoutXml)
+    // Keylayout
+    try {
+      const keylayoutXml = await generateKeylayout(jsonInput)
+      const layoutName = response.input.split(".").slice(0, -1).join(".")
+      const outputFilename = `output/${layoutName}.keylayout`
+      fs.writeFileSync(outputFilename, keylayoutXml)
 
-    fixUnicode(outputFilename)
+      fixUnicode(outputFilename)
 
-    console.log(`Output : ${outputFilename}`)
-  } catch (e) {
-    console.error(e)
-    process.exit(1)
-  }
+      console.log(`Output : ${outputFilename}`)
+    } catch (e) {
+      console.error(e)
+      process.exit(1)
+    }
 
-  // Klc
-  try {
-    const layoutName = response.input.split(".")[0]
-    const outputFilename = `output/${layoutName}.klc`
-    await generateKlc(jsonInput, outputFilename)
+    // Klc
+    try {
+      const layoutName = response.input.split(".").slice(0, -1).join(".")
+      const outputFilename = `output/${layoutName}.klc`
+      await generateKlc(jsonInput, outputFilename)
 
-    console.log(`Output : ${outputFilename}`)
-  } catch (e) {
-    console.error(e)
-    process.exit(1)
-  }
+      console.log(`Output : ${outputFilename}`)
+    } catch (e) {
+      console.error(e)
+      process.exit(1)
+    }
 
     // Xkb
-  try {
-    const layoutName = response.input.split(".")[0]
-    const outputFilename = `output/${layoutName}_xkb`
-    await generateXkb(jsonInput, outputFilename)
+    try {
+      const layoutName = response.input.split(".").slice(0, -1).join(".")
+      const outputFilename = `output/${layoutName}_xkb`
+      await generateXkb(jsonInput, outputFilename)
 
-    console.log(`Output : ${outputFilename}`)
-  } catch (e) {
-    console.error(e)
-    process.exit(1)
-  }
-})()
+      console.log(`Output : ${outputFilename}`)
+    } catch (e) {
+      console.error(e)
+      process.exit(1)
+    }
+  })()
