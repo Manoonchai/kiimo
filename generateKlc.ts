@@ -95,7 +95,7 @@ export async function generateKlc(
 
   const lines = [
     `KBD\t${layout.os.windows.installerName}\t"${layout.language} ${layout.name} v${layout.version}"`,
-    `COPYRIGHT\t"MIT"`,
+    `COPYRIGHT\t"${layout.license}"`,
     `COMPANY\t"${layout.os.windows.company}"`,
     `LOCALENAME\t"${klcLocales[layout.language]}"`,
     `LOCALEID\t"${layout.os.windows.localeId}"`,

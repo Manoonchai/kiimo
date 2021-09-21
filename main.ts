@@ -51,6 +51,9 @@ export class Layout {
 
   @IsDefined()
   os: OSAttributes
+  
+  @IsString()
+  license: string
 }
 
 interface OSAttributes {

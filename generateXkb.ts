@@ -88,18 +88,20 @@ export async function generateXkb(
   const lines = [
     `partial alphanumeric_keys`,
     `xkb_symbols "${layout.os.windows.installerName}" {`,
-    `\n    // COPYRIGHT    "MIT"`,
+    `\n    // COPYRIGHT    "${layout.license}"`,
     `\n    name[Group1]= "${layout.name} v${layout.version}";`,
   ]
 
   const layoutLines = [""]
   Object.entries(klfDefaultLayout).forEach(([key, value]) => {
-    const extensions = layout.layers.map((_, idx) => {
-      return (toHex(layout.keys[key][idx]) || "voidsymbol") + ((idx < 3) ? "," : "")
-    })
+//    const extensions = layout.layers.map((_, idx) => {
+//      return (toHex(layout.keys[key][idx]) || "voidsymbol") + ((idx < 3) ? "," : "")
+//    })
+    const extensions = (toHex(layout.keys[key][0]) || "voidsymbol") + "," + (toHex(layout.keys[key][1]) || "voidsymbol") 
+    + "," + (toHex(layout.keys[key][3]) || "voidsymbol")+ "," + (toHex(layout.keys[key][5]) || "voidsymbol") + "] };"
 
-    extensions.push("] };")
-    layoutLines.push([value, ...extensions].join(" "))
+    //extensions.push("] };")
+    layoutLines.push([value, ...extensions].join(""))
   })
 
   fs.writeFileSync(

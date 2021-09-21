@@ -3,6 +3,7 @@
   "version": "1.0",
   "language": "Thai",
   "layers": ["Base", "Shift", "Command", "AltGr", "Control", "ShiftAltGr"],
+  "license": "MIT",
   "os": {
     "windows": {
       "installerName": "WittNV",
