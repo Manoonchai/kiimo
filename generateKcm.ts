@@ -32,6 +32,8 @@ export async function generateKcm(
     return result;
   }
 
+
+
   const klfDefaultLayout = {
     "1": "key 1 {",
     "2": "key 2 {",
@@ -159,8 +161,8 @@ map key 95 NUMPAD_COMMA`
         layoutLines.join("\n"),
         `key SPACE {\n    label: '\\u0020'\n    base: '\\u0020'\n    `
         +`shift: '\\u0020'\n    capslock+shift: '\\u0020'\n}`,
-        `key NUMPAD_COMMA {\n    label: '\\u002c'\n    base: '\\u002c'\n    `
-        +`shift: '\\u002e'\n    capslock+shift: '\\u002e'\n}`,
+        `key NUMPAD_COMMA {\n    label: '\\u002e'\n    base: '\\u002e'\n    `
+        +`shift: '\\u002c'\n    capslock+shift: '\\u002c'\n}`,
       ].join("\n\n"),
     {
       encoding: "utf8",

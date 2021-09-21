@@ -480,8 +480,8 @@ key SPACE {
 }
 
 key NUMPAD_COMMA {
-    label: '\u002c'
-    base: '\u002c'
-    shift: '\u002e'
-    capslock+shift: '\u002e'
+    label: '\u002e'
+    base: '\u002e'
+    shift: '\u002c'
+    capslock+shift: '\u002c'
 }
