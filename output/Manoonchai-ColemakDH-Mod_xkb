@@ -1,4 +1,4 @@
-﻿partial alphanumeric_keys
+partial alphanumeric_keys
 xkb_symbols "Mnc-DH" {
 
     // COPYRIGHT    "MIT"

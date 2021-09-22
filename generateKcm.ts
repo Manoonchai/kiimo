@@ -155,7 +155,7 @@ map key 95 NUMPAD_COMMA`
 
   fs.writeFileSync(
     outputPath,
-    "\ufeff" +
+    //"\ufeff" +
       [
         lines.join("\n"),
         layoutLines.join("\n"),

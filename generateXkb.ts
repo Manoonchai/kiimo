@@ -106,7 +106,7 @@ export async function generateXkb(
 
   fs.writeFileSync(
     outputPath,
-    "\ufeff" +
+    //"\ufeff" +
     [
       lines.join("\n"),
       layoutLines.join("\n    "),
