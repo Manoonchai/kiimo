@@ -82,6 +82,8 @@ export async function generateKcm(
     ",": "key COMMA {",
     ".": "key PERIOD {",
     "/": "key SLASH {",
+    " ": "key SPACE {",
+    "KPDL": "key NUMPAD_COMMA {",
   }
 
   const lines = [
@@ -159,10 +161,6 @@ map key 95 NUMPAD_COMMA`
       [
         lines.join("\n"),
         layoutLines.join("\n"),
-        `key SPACE {\n    label: '\\u0020'\n    base: '\\u0020'\n    `
-        +`shift: '\\u0020'\n    capslock+shift: '\\u0020'\n}`,
-        `key NUMPAD_COMMA {\n    label: '\\u002e'\n    base: '\\u002e'\n    `
-        +`shift: '\\u002c'\n    capslock+shift: '\\u002c'\n}`,
       ].join("\n\n"),
     {
       encoding: "utf8",

@@ -22,10 +22,27 @@ export async function generateKlc(
     throw new Error(windowsErrors.map((e) => e.toString()).join(", "))
   }
 
-  const klcLocales = {
-    Thai: "th-TH",
+//  const klcLocales = {
+//    Thai: "th-TH",
+//    Laos: "lo-LA",
+//  }
+  function klcLocales(lang: string){
+      switch(lang) { 
+         case "Thai": { 
+            return "th-TH"; 
+            break; 
+         } 
+         case "Laos": { 
+            return "lo-LA"; 
+            break; 
+         } 
+         default: { 
+            return "bg-BG"; 
+            break; 
+         } 
+      } 
   }
-
+  
   const klcShiftStates = {
     Base: 0,
     Shift: 1,
@@ -91,13 +108,15 @@ export async function generateKlc(
     ",": "33\tOEM_COMMA",
     ".": "34\tOEM_PERIOD",
     "/": "35\tOEM_2",
+    " ": "39\tSPACE",
+    "KPDL": "53\tDECIMAL",
   }
 
   const lines = [
     `KBD\t${layout.os.windows.installerName}\t"${layout.language} ${layout.name} v${layout.version}"`,
     `COPYRIGHT\t"${layout.license}"`,
     `COMPANY\t"${layout.os.windows.company}"`,
-    `LOCALENAME\t"${klcLocales[layout.language]}"`,
+    `LOCALENAME\t"${klcLocales(layout.language)}"`,
     `LOCALEID\t"${layout.os.windows.localeId}"`,
     `VERSION\t${layout.version}`,
   ]

@@ -31,8 +31,11 @@ export class Layout {
   version: string
 
   @IsString()
-  @IsIn(["Thai"])
-  language: "Thai"
+  language: string
+
+  //@IsString()
+  //@IsIn(["Thai"])
+  //language: "Thai"
 
   @ArrayNotEmpty()
   @IsIn(

@@ -81,6 +81,8 @@ export async function generateXkb(
     ",": "key <AB08> { [",
     ".": "key <AB09> { [",
     "/": "key <AB10> { [",
+    " ": "key <SPCE> { [",
+    "KPDL": "key <KPDL> { [",
   }
 
   const lines = [

@@ -177,6 +177,7 @@ key Q {
     shift: '\u0e12'
     capslock: '\u0e12'
     capslock+shift: '\u0e43'
+    ralt: '\u0071'
     }
 
 key W {
@@ -185,6 +186,7 @@ key W {
     shift: '\u0e0f'
     capslock: '\u0e0f'
     capslock+shift: '\u0e15'
+    ralt: '\u0077'
     }
 
 key E {
@@ -193,6 +195,7 @@ key E {
     shift: '\u0e0b'
     capslock: '\u0e0b'
     capslock+shift: '\u0e2b'
+    ralt: '\u0066'
     }
 
 key R {
@@ -201,6 +204,7 @@ key R {
     shift: '\u0e0d'
     capslock: '\u0e0d'
     capslock+shift: '\u0e25'
+    ralt: '\u0070'
     }
 
 key T {
@@ -209,6 +213,7 @@ key T {
     shift: '\u0e1f'
     capslock: '\u0e1f'
     capslock+shift: '\u0e2a'
+    ralt: '\u0062'
     }
 
 key Y {
@@ -217,6 +222,7 @@ key Y {
     shift: '\u0e09'
     capslock: '\u0e09'
     capslock+shift: '\u0e1b'
+    ralt: '\u006a'
     }
 
 key U {
@@ -234,6 +240,7 @@ key I {
     shift: '\u0e18'
     capslock: '\u0e18'
     capslock+shift: '\u0e01'
+    ralt: '\u0075'
     }
 
 key O {
@@ -242,6 +249,7 @@ key O {
     shift: '\u0e10'
     capslock: '\u0e10'
     capslock+shift: '\u0e34'
+    ralt: '\u0079'
     }
 
 key P {
@@ -250,6 +258,8 @@ key P {
     shift: '\u0e0e'
     capslock: '\u0e0e'
     capslock+shift: '\u0e1a'
+    ralt: '\u003b'
+    ralt+shift: '\u003a'
     }
 
 key LEFT_BRACKET {
@@ -314,6 +324,7 @@ key G {
     shift: '\u0e1e'
     capslock: '\u0e1e'
     capslock+shift: '\u0e21'
+    ralt: '\u0067'
     }
 
 key H {
@@ -349,6 +360,7 @@ key L {
     shift: '\u0e42'
     capslock: '\u0e42'
     capslock+shift: '\u0e49'
+    ralt: '\u0069'
     }
 
 key SEMICOLON {
@@ -357,8 +369,7 @@ key SEMICOLON {
     shift: '\u0e20'
     capslock: '\u0e20'
     capslock+shift: '\u0e27'
-    ralt: '\u003b'
-    ralt+shift: '\u003a'
+    ralt: '\u006f'
     }
 
 key APOSTROPHE {
@@ -396,6 +407,7 @@ key X {
     shift: '\u0e1d'
     capslock: '\u0e1d'
     capslock+shift: '\u0e44'
+    ralt: '\u0078'
     }
 
 key C {
@@ -413,6 +425,7 @@ key V {
     shift: '\u0e13'
     capslock: '\u0e13'
     capslock+shift: '\u0e22'
+    ralt: '\u0076'
     }
 
 key B {
@@ -421,6 +434,7 @@ key B {
     shift: '\u0e4a'
     capslock: '\u0e4a'
     capslock+shift: '\u0e08'
+    ralt: '\u0064'
     }
 
 key N {
