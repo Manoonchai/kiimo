@@ -10,4 +10,5 @@ Modify, and generate keyboard layout from single JSON file. Built with TypeScrip
 - Generate layout files
   - `.keylayout` (macOS)
   - `.klc` (Windows)
+  - `.kcm` (Android Physical keyboard)
   - XKB (Linux)
