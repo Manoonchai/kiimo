@@ -1,5 +1,5 @@
 {
-  "name": "Manoonchai",
+  "name": "ManoonchaiColemak",
   "version": "1.0",
   "language": "Thai",
   "layers": ["Base", "Shift", "Command", "AltGr", "Control", "ShiftAltGr"],
@@ -60,6 +60,6 @@
     ".": ["ะ", "ฮ", ".", ".", ".", ">"],
     "/": ["ู", "?", "/", "/", "/", "?"],
     " ": [" ", " ", " ", " ", " ", " "],
-    "KPDL": [".", ",", ".", ".", ".", "."]
+    "KPDL": [".", ",", "KPDL", ".", "KPDL", "."]
   }
 }

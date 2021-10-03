@@ -1,5 +1,5 @@
 {
-  "name": "Manoonchai_Laos_Pali",
+  "name": "Manoonchai Laos Pali",
   "version": "1.0",
   "language": "Laos",
   "layers": ["Base", "Shift", "Command", "AltGr", "Control", "ShiftAltGr"],
@@ -60,6 +60,6 @@
     ".": ["ະ", "ຐ", ".", ".", ".", ">"],
     "/": ["ູ", "?", "/", "/", "/", "?"],
     " ": [" ", "\u200B", " ", " ", " ", " "],
-    "KPDL": [",", ".", ",", ",", ",", ","]
+    "KPDL": [",", ".", "KPDL", ",", "KPDL", ","]
   }
 }
