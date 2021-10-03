@@ -112,7 +112,7 @@ export async function generateXkb(
     [
       lines.join("\n"),
       layoutLines.join("\n    "),
-      "    include \"level3(ralt_switch)\"\n};",
+      "    include \"level3(ralt_switch)\"\n};\n",
     ].join("\n\n"),
     {
       encoding: "utf8",
