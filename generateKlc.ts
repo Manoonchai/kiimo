@@ -26,22 +26,6 @@ export async function generateKlc(
     Thai: "th-TH",
     Laos: "lo-LA",
   }
-//   function klcLocales(lang: string){
-//      switch(lang) { 
-//         case "Thai": { 
-//            return "th-TH"; 
-//            break; 
-//         } 
-//         case "Laos": { 
-//            return "lo-LA"; 
-//            break; 
-//         } 
-//         default: { 
-//            return "bg-BG"; 
-//            break; 
-//         } 
-//      } 
-//  }
   
   function toHex(str: string) {
     let hex, i;
@@ -58,22 +42,6 @@ export async function generateKlc(
     }
   }
 
-//   const klcShiftStates = {
-//    Base: 0,
-//    Shift: 1,
-//    Ctrl: 2,
-//    "Shift+Ctrl": 3,
-//    Alt: 4, // Layer number 4 is not supported in KLC
-//    "Shift+Alt": 5,
-//    "Alt+Ctrl": 6,
-//    "Shift+Alt+Ctrl": 7,
-    // From macOS config
-//    Command: 4, // Layer number 4 is not supported in KLC
-//    AltGr: 6,
-//    ShiftAltGr: 7,
-//    Option: 7,
-//    Control: 2,
-//  } 
   const toVK: any = {
     "1": "1",
     "2": "2",
@@ -188,26 +156,6 @@ export async function generateKlc(
   ]
 
   const shiftStateLines: Array<string> = []
-
-//   layout.layers.forEach((layer, idx) => {
-//    if (layer in klcShiftStates) {
-//      // Filter out layer 4 (Command)
-//      if (klcShiftStates[layer] === 4) {
-//        layout.keys = Object.fromEntries(
-//          Object.entries(layout.keys).map(([key, keys]) => {
-//            keys.splice(idx, 1)
-//            return [key, keys]
-//          })
-//        )
-//      } else {
-//        shiftStateLines.push(
-//          `${klcShiftStates[layer]}\t// Column ${idx + 4} : ${layer}`
-//        )
-//      }
-//    } else {
-//      throw new Error("Layer not valid")
-//    }
-//  })
   
   shiftStateLines.push(`0\t//Column 4 : Base`)
   shiftStateLines.push(`1\t//Column 5 : Shft`)
@@ -217,20 +165,13 @@ export async function generateKlc(
 
   shiftStateLines.unshift("SHIFTSTATE", "")
   
-
   const layoutLines = ["LAYOUT\t\t;an extra '@' at the end is a dead key\r\n"]
 
   layoutLines.push(`//SC\tVK_\tCap\t0\t1\t2\t6\t7`)
   layoutLines.push(`//--\t----\t----\t----\t----\t----\t----\t----\r\n`)
 
   Object.entries(klfDefaultLayout).forEach(([key, value]) => {
-//     const extensions = layout.layers.map((_, idx) => {
-//      return layout.keys[key][idx] || "-1"
-//    })
-//    
-//    layoutLines.push([value, "0", ...extensions].join("\t"))
-    
-        const extensions = "\t" + (toVK[(layout.keys[key][4])] || "-1") 
+    const extensions = "\t" + (toVK[(layout.keys[key][4])] || "-1") 
     + "\t0" 
     + "\t" + (toHex(layout.keys[key][0]) || "-1") 
     + "\t" + (toHex(layout.keys[key][1]) || "-1")

@@ -32,8 +32,6 @@ export async function generateKcm(
     return result;
   }
 
-
-
   const klfDefaultLayout = {
     "1": "key 1 {",
     "2": "key 2 {",

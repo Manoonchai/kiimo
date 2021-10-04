@@ -94,15 +94,11 @@ export async function generateXkb(
 
   const layoutLines = [""]
   Object.entries(klfDefaultLayout).forEach(([key, value]) => {
-//    const extensions = layout.layers.map((_, idx) => {
-//      return (toHex(layout.keys[key][idx]) || "voidsymbol") + ((idx < 3) ? "," : "")
-//    })
     const extensions = (toHex(layout.keys[key][0]) || "voidsymbol") 
     + "," + (toHex(layout.keys[key][1]) || "voidsymbol") 
     + "," + (toHex(layout.keys[key][3]) || "voidsymbol")
     + "," + (toHex(layout.keys[key][5]) || "voidsymbol") + "] };"
 
-//  extensions.push("] };")
     layoutLines.push([value, ...extensions].join(""))
   })
 
