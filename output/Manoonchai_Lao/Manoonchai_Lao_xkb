@@ -3,7 +3,7 @@ xkb_symbols "LaoMnc" {
 
     // COPYRIGHT    "MIT"
 
-    name[Group1]= "Lao (Manoonchai Laos Pali v1.0)";
+    name[Group1]= "Lao (Manoonchai Lao-Pali v1.0)";
 
 
     key <AE10> { [ 0x1000030, 0x1000029, 0x1000ed0,voidsymbol] };

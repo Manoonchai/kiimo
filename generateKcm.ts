@@ -86,7 +86,7 @@ export async function generateKcm(
 
   const lines = [
 `# License: ${layout.license} 
-\n# ${layout.language}  ${layout.name} v${layout.version}
+\n# ${layout.language} ${layout.name} v${layout.version}
 \ntype OVERLAY
 map key 2 1
 map key 3 2
