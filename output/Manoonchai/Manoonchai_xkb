@@ -3,7 +3,7 @@ xkb_symbols "ThaiMnc" {
 
     // COPYRIGHT    "MIT"
 
-    name[Group1]= "Manoonchai v1.0";
+    name[Group1]= "Thai (Manoonchai v1.0)";
 
 
     key <AE10> { [ 0x1000030, 0x1000029, 0x1000e50,voidsymbol] };

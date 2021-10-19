@@ -89,7 +89,7 @@ export async function generateXkb(
     `partial alphanumeric_keys`,
     `xkb_symbols "${layout.os.windows.installerName}" {`,
     `\n    // COPYRIGHT    "${layout.license}"`,
-    `\n    name[Group1]= "${layout.name} v${layout.version}";`,
+    `\n    name[Group1]= "${layout.language} (${layout.name} v${layout.version})";`,
   ]
 
   const layoutLines = [""]
