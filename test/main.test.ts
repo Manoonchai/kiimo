@@ -463,17 +463,27 @@ describe("generateKlc", () => {
     // 6	//Column 7 :       Ctrl Alt
     // 7	//Column 8 : Shft  Ctrl Alt
 
+    //expect(lines[6]).toEqual(`SHIFTSTATE`)
+    //expect(lines[7]).toEqual(`0\t// Column 4 : Base`)
+    //expect(lines[8]).toEqual(`1\t// Column 5 : Shift`)
+    //expect(lines[9]).toEqual(`6\t// Column 7 : AltGr`)
+    
     expect(lines[6]).toEqual(`SHIFTSTATE`)
-    expect(lines[7]).toEqual(`0\t// Column 4 : Base`)
-    expect(lines[8]).toEqual(`1\t// Column 5 : Shift`)
-    expect(lines[9]).toEqual(`6\t// Column 7 : AltGr`)
+    expect(lines[7]).toEqual(`0\t//Column 4 : Base`)
+    expect(lines[8]).toEqual(`1\t//Column 5 : Shft`)
+    expect(lines[9]).toEqual(`2\t//Column 6 :       Ctrl`)
+    expect(lines[10]).toEqual(`6\t//Column 7 :       Ctrl Alt`)
+    expect(lines[11]).toEqual(`7\t//Column 8 : Shft  Ctrl Alt`)
 
     // Assert Layout
-    const layoutLineIdx = lines.indexOf(`LAYOUT`)
-    expect(lines[layoutLineIdx]).toEqual(`LAYOUT`)
+    //const layoutLineIdx = lines.indexOf(`LAYOUT`)
+    //expect(lines[layoutLineIdx]).toEqual(`LAYOUT`)
 
-    expect(lines[layoutLineIdx + 1]).toEqual(`0b\t0\t0\t0\t)\t๐\t0\t-1\t-1`)
-    expect(lines[layoutLineIdx + 2]).toEqual(`02\t1\t0\t1\t!\t๑\t1\t-1\t-1`)
+    //expect(lines[layoutLineIdx + 5]).toEqual(`0b\t0\t0\t0\t)\t๐\t0\t-1\t-1`)
+    //expect(lines[layoutLineIdx + 6]).toEqual(`02\t1\t0\t1\t!\t๑\t1\t-1\t-1`)
+
+    expect(lines[15]).toEqual(`0b\t0\t0\t0030\t0029\t-1\t0e50\t-1`)
+    expect(lines[16]).toEqual(`02\t1\t0\t0031\t0021\t-1\t0e51\t-1`)
 
     // Assert ENDKBD
     expect(lines.slice(-1)).toEqual(["ENDKBD"])

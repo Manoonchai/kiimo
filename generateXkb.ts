@@ -33,8 +33,6 @@ export async function generateXkb(
     return result;
   }
 
-
-
   const klfDefaultLayout = {
     "1": "key <AE01> { [",
     "2": "key <AE02> { [",
@@ -83,34 +81,34 @@ export async function generateXkb(
     ",": "key <AB08> { [",
     ".": "key <AB09> { [",
     "/": "key <AB10> { [",
+    " ": "key <SPCE> { [",
+    "KPDL": "key <KPDL> { [",
   }
 
   const lines = [
     `partial alphanumeric_keys`,
     `xkb_symbols "${layout.os.windows.installerName}" {`,
     `\n    // COPYRIGHT    "${layout.license}"`,
-    `\n    name[Group1]= "${layout.name} v${layout.version}";`,
+    `\n    name[Group1]= "${layout.language} (${layout.name} v${layout.version})";`,
   ]
 
   const layoutLines = [""]
   Object.entries(klfDefaultLayout).forEach(([key, value]) => {
-//    const extensions = layout.layers.map((_, idx) => {
-//      return (toHex(layout.keys[key][idx]) || "voidsymbol") + ((idx < 3) ? "," : "")
-//    })
-    const extensions = (toHex(layout.keys[key][0]) || "voidsymbol") + "," + (toHex(layout.keys[key][1]) || "voidsymbol") 
-    + "," + (toHex(layout.keys[key][3]) || "voidsymbol")+ "," + (toHex(layout.keys[key][5]) || "voidsymbol") + "] };"
+    const extensions = (toHex(layout.keys[key][0]) || "voidsymbol") 
+    + "," + (toHex(layout.keys[key][1]) || "voidsymbol") 
+    + "," + (toHex(layout.keys[key][3]) || "voidsymbol")
+    + "," + (toHex(layout.keys[key][5]) || "voidsymbol") + "] };"
 
-    //extensions.push("] };")
     layoutLines.push([value, ...extensions].join(""))
   })
 
   fs.writeFileSync(
     outputPath,
-    "\ufeff" +
+    //"\ufeff" +
     [
       lines.join("\n"),
       layoutLines.join("\n    "),
-      "    include \"level3(ralt_switch)\"\n};",
+      "    include \"level3(ralt_switch)\"\n};\n",
     ].join("\n\n"),
     {
       encoding: "utf8",

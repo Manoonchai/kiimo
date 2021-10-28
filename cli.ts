@@ -4,6 +4,7 @@ import path from "path"
 import { generateKeylayout } from "./generateKeylayout"
 import { generateKlc } from "./generateKlc"
 import { generateXkb } from "./generateXkb"
+import { generateKcm } from "./generateKcm"
 import { fixUnicode } from "./utils"
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -31,7 +32,11 @@ const choices = filenames.map((filename) => ({
     try {
       const keylayoutXml = await generateKeylayout(jsonInput)
       const layoutName = response.input.split(".").slice(0, -1).join(".")
-      const outputFilename = `output/${layoutName}.keylayout`
+      const dir = `output/${layoutName}`
+      if (!fs.existsSync(dir)){
+              fs.mkdirSync(dir);
+      }
+      const outputFilename = `output/${layoutName}/${layoutName}.keylayout`
       fs.writeFileSync(outputFilename, keylayoutXml)
 
       fixUnicode(outputFilename)
@@ -45,7 +50,11 @@ const choices = filenames.map((filename) => ({
     // Klc
     try {
       const layoutName = response.input.split(".").slice(0, -1).join(".")
-      const outputFilename = `output/${layoutName}.klc`
+      const dir = `output/${layoutName}`
+      if (!fs.existsSync(dir)){
+              fs.mkdirSync(dir);
+      }
+      const outputFilename = `output/${layoutName}/`+jsonInput.os.windows.installerName+`.klc`
       await generateKlc(jsonInput, outputFilename)
 
       console.log(`Output : ${outputFilename}`)
@@ -57,8 +66,28 @@ const choices = filenames.map((filename) => ({
     // Xkb
     try {
       const layoutName = response.input.split(".").slice(0, -1).join(".")
-      const outputFilename = `output/${layoutName}_xkb`
+      const dir = `output/${layoutName}`
+      if (!fs.existsSync(dir)){
+              fs.mkdirSync(dir);
+      }
+      const outputFilename = `output/${layoutName}/${layoutName}_xkb`
       await generateXkb(jsonInput, outputFilename)
+
+      console.log(`Output : ${outputFilename}`)
+    } catch (e) {
+      console.error(e)
+      process.exit(1)
+    }
+
+    // Kmc
+    try {
+      const layoutName = response.input.split(".").slice(0, -1).join(".")
+      const dir = `output/${layoutName}`
+      if (!fs.existsSync(dir)){
+              fs.mkdirSync(dir);
+      }
+      const outputFilename = `output/${layoutName}/${layoutName}.kcm`
+      await generateKcm(jsonInput, outputFilename)
 
       console.log(`Output : ${outputFilename}`)
     } catch (e) {
