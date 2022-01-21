@@ -23,8 +23,8 @@ export async function generateKcm(
   }
 
   function toHex(str: string) {
-    var hex, i;
-    var result = "";
+    let hex, i;
+    let result = "";
     for (i=0; i<str.length; i++) {
         hex = str.charCodeAt(i).toString(16);
         result += "\\u"+("0000"+hex).slice(-4);
