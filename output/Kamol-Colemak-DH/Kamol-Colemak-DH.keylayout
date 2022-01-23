@@ -1,6 +1,6 @@
 <?xml version="1.1" encoding="UTF-8"?>
 <!DOCTYPE keyboard SYSTEM "file://localhost/System/Library/DTDs/KeyboardLayout.dtd">
-<keyboard group="0" id="12345" name="Kamol Colemak DH Matrix" maxout="1">
+<keyboard group="0" id="12345" name="Kamol Colemak DH" maxout="1">
   <layouts>
     <layout first="0" last="0" mapSet="defaultKeyMapSet" modifiers="defaultModifierMap"/>
   </layouts>
@@ -26,16 +26,16 @@
   </modifierMap>
   <keyMapSet id="defaultKeyMapSet">
     <keyMap index="0">
-      <key code="0" output="ื"/>
+      <key code="0" output="ง"/>
       <key code="1" output="เ"/>
-      <key code="2" output="ก"/>
+      <key code="2" output="ร"/>
       <key code="3" output="น"/>
-      <key code="4" output="้"/>
+      <key code="4" output="อ"/>
       <key code="5" output="ม"/>
       <key code="6" output="ุ"/>
       <key code="7" output="ไ"/>
       <key code="8" output="ท"/>
-      <key code="9" output="อ"/>
+      <key code="9" output="ย"/>
       <key code="10" output="§"/>
       <key code="11" output="จ"/>
       <key code="12" output="็"/>
@@ -59,16 +59,16 @@
       <key code="30" output="ฬ"/>
       <key code="31" output="ิ"/>
       <key code="32" output="ั"/>
-      <key code="33" output="ใ"/>
-      <key code="34" output="ร"/>
+      <key code="33" output="ฯ"/>
+      <key code="34" output="ก"/>
       <key code="35" output="บ"/>
       <key code="36" output="&#x000D;"/>
-      <key code="37" output="ย"/>
-      <key code="38" output="่"/>
-      <key code="39" output="ง"/>
-      <key code="40" output="า"/>
+      <key code="37" output="้"/>
+      <key code="38" output="า"/>
+      <key code="39" output="ื"/>
+      <key code="40" output="่"/>
       <key code="41" output="ว"/>
-      <key code="42" output="ฯ"/>
+      <key code="42" output="ใ"/>
       <key code="43" output="ด"/>
       <key code="44" output="ู"/>
       <key code="45" output="ค"/>
@@ -136,15 +136,15 @@
     </keyMap>
     <keyMap index="1">
       <key code="0" output="ษ"/>
-      <key code="1" output="ๆ"/>
+      <key code="1" output="แ"/>
       <key code="2" output="ถ"/>
       <key code="3" output="ช"/>
       <key code="4" output="ผ"/>
       <key code="5" output="พ"/>
       <key code="6" output="ฝ"/>
       <key code="7" output="ฤ"/>
-      <key code="8" output="แ"/>
-      <key code="9" output="โ"/>
+      <key code="8" output="ๆ"/>
+      <key code="9" output="ญ"/>
       <key code="10" output="§"/>
       <key code="11" output="๊"/>
       <key code="12" output="ฒ"/>
@@ -168,16 +168,16 @@
       <key code="30" output="ฑ"/>
       <key code="31" output="ฐ"/>
       <key code="32" output="ึ"/>
-      <key code="33" output="ฆ"/>
+      <key code="33" output="ฌ"/>
       <key code="34" output="ฟ"/>
       <key code="35" output="๋"/>
       <key code="36" output="&#x000D;"/>
-      <key code="37" output="ญ"/>
-      <key code="38" output="ข"/>
+      <key code="37" output="โ"/>
+      <key code="38" output="ำ"/>
       <key code="39" output="&#x0022;"/>
-      <key code="40" output="ำ"/>
+      <key code="40" output="ข"/>
       <key code="41" output="ภ"/>
-      <key code="42" output="ฌ"/>
+      <key code="42" output="ฆ"/>
       <key code="43" output="ฎ"/>
       <key code="44" output="?"/>
       <key code="45" output="ศ"/>
@@ -391,9 +391,9 @@
       <key code="35" output=";"/>
       <key code="36" output="&#x000D;"/>
       <key code="37" output="i"/>
-      <key code="38" output="ฃ"/>
+      <key code="38" output="ๅ"/>
       <key code="39" output="&#x0027;"/>
-      <key code="40" output="ๅ"/>
+      <key code="40" output="ฃ"/>
       <key code="41" output="o"/>
       <key code="42" output="\"/>
       <key code="43" output=","/>

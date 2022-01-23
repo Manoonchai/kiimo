@@ -1,12 +1,12 @@
 {
-  "name": "Kamol Colemak DH",
+  "name": "Kamol Colemak DH Matrix",
   "version": "0.2",
   "language": "Thai",
   "layers": ["Base", "Shift", "Command", "AltGr", "Control", "ShiftAltGr"],
   "license": "MIT",
   "os": {
     "windows": {
-      "installerName": "th-kadh",
+      "installerName": "th-kadhm",
       "company": "Kamol",
       "localeId": "0000041e"
     }

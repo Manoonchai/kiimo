@@ -1,6 +1,6 @@
 # License: MIT 
 
-# Thai Kamol Colemak DH Matrix v0.1
+# Thai Kamol Colemak DH v0.2
 
 type OVERLAY
 map key 2 1
@@ -235,11 +235,11 @@ key U {
     }
 
 key I {
-    label: '\u0e23'
-    base: '\u0e23'
+    label: '\u0e01'
+    base: '\u0e01'
     shift: '\u0e1f'
     capslock: '\u0e1f'
-    capslock+shift: '\u0e23'
+    capslock+shift: '\u0e01'
     ralt: '\u0075'
     }
 
@@ -263,11 +263,11 @@ key P {
     }
 
 key LEFT_BRACKET {
-    label: '\u0e43'
-    base: '\u0e43'
-    shift: '\u0e06'
-    capslock: '\u0e06'
-    capslock+shift: '\u0e43'
+    label: '\u0e2f'
+    base: '\u0e2f'
+    shift: '\u0e0c'
+    capslock: '\u0e0c'
+    capslock+shift: '\u0e2f'
     ralt: '\u005b'
     ralt+shift: '\u007b'
     }
@@ -283,29 +283,29 @@ key RIGHT_BRACKET {
     }
 
 key A {
-    label: '\u0e37'
-    base: '\u0e37'
+    label: '\u0e07'
+    base: '\u0e07'
     shift: '\u0e29'
     capslock: '\u0e29'
-    capslock+shift: '\u0e37'
+    capslock+shift: '\u0e07'
     ralt: '\u25cc'
     }
 
 key S {
     label: '\u0e40'
     base: '\u0e40'
-    shift: '\u0e46'
-    capslock: '\u0e46'
+    shift: '\u0e41'
+    capslock: '\u0e41'
     capslock+shift: '\u0e40'
     ralt: '\u0072'
     }
 
 key D {
-    label: '\u0e01'
-    base: '\u0e01'
+    label: '\u0e23'
+    base: '\u0e23'
     shift: '\u0e16'
     capslock: '\u0e16'
-    capslock+shift: '\u0e01'
+    capslock+shift: '\u0e23'
     ralt: '\u0e4f'
     }
 
@@ -328,24 +328,15 @@ key G {
     }
 
 key H {
-    label: '\u0e49'
-    base: '\u0e49'
+    label: '\u0e2d'
+    base: '\u0e2d'
     shift: '\u0e1c'
     capslock: '\u0e1c'
-    capslock+shift: '\u0e49'
+    capslock+shift: '\u0e2d'
     ralt: '\u0e3a'
     }
 
 key J {
-    label: '\u0e48'
-    base: '\u0e48'
-    shift: '\u0e02'
-    capslock: '\u0e02'
-    capslock+shift: '\u0e48'
-    ralt: '\u0e03'
-    }
-
-key K {
     label: '\u0e32'
     base: '\u0e32'
     shift: '\u0e33'
@@ -354,12 +345,21 @@ key K {
     ralt: '\u0e45'
     }
 
+key K {
+    label: '\u0e48'
+    base: '\u0e48'
+    shift: '\u0e02'
+    capslock: '\u0e02'
+    capslock+shift: '\u0e48'
+    ralt: '\u0e03'
+    }
+
 key L {
-    label: '\u0e22'
-    base: '\u0e22'
-    shift: '\u0e0d'
-    capslock: '\u0e0d'
-    capslock+shift: '\u0e22'
+    label: '\u0e49'
+    base: '\u0e49'
+    shift: '\u0e42'
+    capslock: '\u0e42'
+    capslock+shift: '\u0e49'
     ralt: '\u0069'
     }
 
@@ -373,21 +373,21 @@ key SEMICOLON {
     }
 
 key APOSTROPHE {
-    label: '\u0e07'
-    base: '\u0e07'
+    label: '\u0e37'
+    base: '\u0e37'
     shift: '\u0022'
     capslock: '\u0022'
-    capslock+shift: '\u0e07'
+    capslock+shift: '\u0e37'
     ralt: '\u0027'
     ralt+shift: '\u0022'
     }
 
 key BACKSLASH {
-    label: '\u0e2f'
-    base: '\u0e2f'
-    shift: '\u0e0c'
-    capslock: '\u0e0c'
-    capslock+shift: '\u0e2f'
+    label: '\u0e43'
+    base: '\u0e43'
+    shift: '\u0e06'
+    capslock: '\u0e06'
+    capslock+shift: '\u0e43'
     ralt: '\u005c'
     ralt+shift: '\u007c'
     }
@@ -413,18 +413,18 @@ key X {
 key C {
     label: '\u0e17'
     base: '\u0e17'
-    shift: '\u0e41'
-    capslock: '\u0e41'
+    shift: '\u0e46'
+    capslock: '\u0e46'
     capslock+shift: '\u0e17'
     ralt: '\u0063'
     }
 
 key V {
-    label: '\u0e2d'
-    base: '\u0e2d'
-    shift: '\u0e42'
-    capslock: '\u0e42'
-    capslock+shift: '\u0e2d'
+    label: '\u0e22'
+    base: '\u0e22'
+    shift: '\u0e0d'
+    capslock: '\u0e0d'
+    capslock+shift: '\u0e22'
     ralt: '\u0064'
     }
 
