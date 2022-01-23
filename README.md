@@ -12,3 +12,6 @@ Modify, and generate keyboard layout from single JSON file. Built with TypeScrip
   - `.klc` (Windows)
   - `.kcm` (Android Physical keyboard)
   - XKB (Linux)
+
+To generate layout files.
+`yarn generate --input Kamol-Colemak-DH-Matrix.json`
