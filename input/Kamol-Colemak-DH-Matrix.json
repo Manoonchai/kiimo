@@ -1,5 +1,6 @@
 {
   "name": "Kamol Colemak DH Matrix",
+  "comment": "Thai custom layout with Cmd/Ctrl for Colemak DH",
   "version": "0.2",
   "language": "Thai",
   "layers": ["Base", "Shift", "Command", "AltGr", "Control", "ShiftAltGr"],
