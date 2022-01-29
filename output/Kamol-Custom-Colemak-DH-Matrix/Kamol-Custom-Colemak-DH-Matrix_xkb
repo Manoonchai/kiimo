@@ -1,0 +1,60 @@
+partial alphanumeric_keys
+xkb_symbols "th-kcdhm" {
+
+    // COPYRIGHT    "MIT"
+
+    name[Group1]= "Thai (Kamol Custom Colemak DH Matrix v0.2)";
+
+
+    key <AE10> { [ 0x1000030, 0x1000029, 0x1000e50,voidsymbol] };
+    key <AE01> { [ 0x1000031, 0x1000021, 0x1000e51,voidsymbol] };
+    key <AE02> { [ 0x1000032, 0x1000040, 0x1000e52,voidsymbol] };
+    key <AE03> { [ 0x1000033, 0x1000023, 0x1000e53,voidsymbol] };
+    key <AE04> { [ 0x1000034, 0x1000024, 0x1000e54,voidsymbol] };
+    key <AE05> { [ 0x1000035, 0x1000025, 0x1000e55,voidsymbol] };
+    key <AE06> { [ 0x1000036, 0x100005e, 0x1000e56,voidsymbol] };
+    key <AE07> { [ 0x1000037, 0x1000026, 0x1000e57,voidsymbol] };
+    key <AE08> { [ 0x1000038, 0x100002a, 0x1000e58,voidsymbol] };
+    key <AE09> { [ 0x1000039, 0x1000028, 0x1000e59,voidsymbol] };
+    key <AE11> { [ 0x100002d, 0x100005f, 0x10000f7,voidsymbol] };
+    key <AE12> { [ 0x100003d, 0x100002b, 0x10000d7,voidsymbol] };
+    key <TLDE> { [ 0x1000060, 0x100007e, 0x1000060,voidsymbol] };
+    key <AD01> { [ 0x1000e47, 0x1000e12, 0x1000071,voidsymbol] };
+    key <AD02> { [ 0x1000e15, 0x1000e0f, 0x1000077,voidsymbol] };
+    key <AD03> { [ 0x1000e48, 0x1000e02, 0x1000e03,voidsymbol] };
+    key <AD04> { [ 0x1000e40, 0x1000e41, 0x1000072,voidsymbol] };
+    key <AD05> { [ 0x1000e19, 0x1000e0a, 0x1000e5a,voidsymbol] };
+    key <AD06> { [ 0x1000e34, 0x1000e10, 0x1000079,voidsymbol] };
+    key <AD07> { [ 0x1000e01, 0x1000e1f, 0x1000075,voidsymbol] };
+    key <AD08> { [ 0x1000e49, 0x1000e42, 0x1000069,voidsymbol] };
+    key <AD09> { [ 0x1000e27, 0x1000e20, 0x100006f,voidsymbol] };
+    key <AD10> { [ 0x1000e25, 0x1000e13, 0x1000070,voidsymbol] };
+    key <AD11> { [ 0x1000e2f, 0x1000e0c, 0x100005b, 0x100007b] };
+    key <AD12> { [ 0x1000e2c, 0x1000e11, 0x100005d, 0x100007d] };
+    key <AC01> { [ 0x1000e07, 0x1000e29, 0x10025cc,voidsymbol] };
+    key <AC02> { [ 0x1000e23, 0x1000e16, 0x1000e4f,voidsymbol] };
+    key <AC03> { [ 0x1000e22, 0x1000e0d, 0x1000064,voidsymbol] };
+    key <AC04> { [ 0x1000e2b, 0x1000e0b, 0x1000066,voidsymbol] };
+    key <AC05> { [ 0x1000e21, 0x1000e1e, 0x1000e5b,voidsymbol] };
+    key <AC06> { [ 0x1000e35, 0x1000e4c, 0x1000e4e,voidsymbol] };
+    key <AC07> { [ 0x1000e1b, 0x1000e09, 0x100006a,voidsymbol] };
+    key <AC08> { [ 0x1000e04, 0x1000e28, 0x1000e05,voidsymbol] };
+    key <AC09> { [ 0x1000e31, 0x1000e36, 0x1000e4d,voidsymbol] };
+    key <AC10> { [ 0x1000e1a, 0x1000e4b, 0x100003b, 0x100003a] };
+    key <AC11> { [ 0x1000e37, 0x1000022, 0x1000027, 0x1000022] };
+    key <BKSL> { [ 0x1000e43, 0x1000e06, 0x100005c, 0x100007c] };
+    key <AB01> { [ 0x1000e38, 0x1000e24, 0x1000e26,voidsymbol] };
+    key <AB02> { [ 0x1000e44, 0x1000e1d, 0x1000078,voidsymbol] };
+    key <AB03> { [ 0x1000e17, 0x1000e46, 0x1000063,voidsymbol] };
+    key <AB04> { [ 0x1000e08, 0x1000e4a, 0x1000076,voidsymbol] };
+    key <AB05> { [ 0x1000e2a, 0x1000e18, 0x1000e3f,voidsymbol] };
+    key <AB06> { [ 0x1000e32, 0x1000e33, 0x1000e45,voidsymbol] };
+    key <AB07> { [ 0x1000e2d, 0x1000e1c, 0x1000e3a,voidsymbol] };
+    key <AB08> { [ 0x1000e14, 0x1000e0e, 0x100002c, 0x100003c] };
+    key <AB09> { [ 0x1000e30, 0x1000e2e, 0x100002e, 0x100003e] };
+    key <AB10> { [ 0x1000e39, 0x100003f, 0x100002f, 0x100003f] };
+    key <SPCE> { [ 0x1000020, 0x1000020, 0x1000020, 0x1000020] };
+    key <KPDL> { [ 0x100002e, 0x100002c, 0x100002e, 0x100002e] };
+
+    include "level3(ralt_switch)"
+};
