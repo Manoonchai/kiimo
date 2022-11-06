@@ -1,7 +1,5 @@
 # Kiimo
 
-(Work in progress)
-
 Modify, and generate keyboard layout from single JSON file. Built with TypeScript.
 
 ## Features
