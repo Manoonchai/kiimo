@@ -5,7 +5,7 @@ import { Layout, WindowsAttributes } from "./main"
 
 export async function generateKlc(
   content: Record<string, unknown>,
-  outputPath: string
+  outputPath: string,
 ): Promise<void> {
   const layout = plainToClass(Layout, content)
   const errors = await validate(layout)
@@ -15,34 +15,33 @@ export async function generateKlc(
   }
 
   const windowsErrors = await validate(
-    plainToClass(WindowsAttributes, layout.os.windows)
+    plainToClass(WindowsAttributes, layout.os.windows),
   )
 
   if (windowsErrors.length) {
     throw new Error(windowsErrors.map((e) => e.toString()).join(", "))
   }
 
-  const klcLocales: any = {
+  const klcLocales = {
     Thai: "th-TH",
     Lao: "lo-LA",
   }
-  
+
   function toHex(str: string) {
-    let hex, i;
-    let result = "";
-    if(str !== null && str !== undefined){
-        for (i = 0; i < str.length; i++) {
-          hex = str.charCodeAt(i).toString(16);
-          result += ("0000" + hex).slice(-4);
-        }
-        return result;
-    }
-    else{
-        return false;
+    let hex, i
+    let result = ""
+    if (str !== null && str !== undefined) {
+      for (i = 0; i < str.length; i++) {
+        hex = str.charCodeAt(i).toString(16)
+        result += ("0000" + hex).slice(-4)
+      }
+      return result
+    } else {
+      return false
     }
   }
 
-  const toVK: any = {
+  const toVK: Record<string, string> = {
     "1": "1",
     "2": "2",
     "3": "3",
@@ -91,9 +90,9 @@ export async function generateKlc(
     ".": "OEM_PERIOD",
     "/": "OEM_2",
     " ": "SPACE",
-    "KPDL": "DECIMAL",
+    KPDL: "DECIMAL",
   }
-  
+
   const klfDefaultLayout = {
     "1": "02",
     "2": "03",
@@ -143,20 +142,20 @@ export async function generateKlc(
     ".": "34",
     "/": "35",
     " ": "39",
-    "KPDL": "53",
+    KPDL: "53",
   }
 
   const lines = [
     `KBD\t${layout.os.windows.installerName}\t"${layout.language} ${layout.name} v${layout.version}"`,
     `COPYRIGHT\t"${layout.license}"`,
     `COMPANY\t"${layout.os.windows.company}"`,
-    `LOCALENAME\t"${klcLocales[layout.language]}"`,
+    `LOCALENAME\t"${klcLocales[layout.language as keyof typeof klcLocales]}"`,
     `LOCALEID\t"${layout.os.windows.localeId}"`,
     `VERSION\t${layout.version}`,
   ]
 
   const shiftStateLines: Array<string> = []
-  
+
   shiftStateLines.push(`0\t//Column 4 : Base`)
   shiftStateLines.push(`1\t//Column 5 : Shft`)
   shiftStateLines.push(`2\t//Column 6 :       Ctrl`)
@@ -164,20 +163,26 @@ export async function generateKlc(
   shiftStateLines.push(`7\t//Column 8 : Shft  Ctrl Alt`)
 
   shiftStateLines.unshift("SHIFTSTATE", "")
-  
+
   const layoutLines = ["LAYOUT\t\t;an extra '@' at the end is a dead key\r\n"]
 
   layoutLines.push(`//SC\tVK_\tCap\t0\t1\t2\t6\t7`)
   layoutLines.push(`//--\t----\t----\t----\t----\t----\t----\t----\r\n`)
 
   Object.entries(klfDefaultLayout).forEach(([key, value]) => {
-    const extensions = "\t" + (toVK[(layout.keys[key][4])] || "-1") 
-    + "\t0" 
-    + "\t" + (toHex(layout.keys[key][0]) || "-1") 
-    + "\t" + (toHex(layout.keys[key][1]) || "-1")
-    + "\t-1"
-    + "\t" + (toHex(layout.keys[key][3]) || "-1")
-    + "\t" + (toHex(layout.keys[key][5]) || "-1")
+    const extensions =
+      "\t" +
+      (toVK[layout.keys[key][4]] || "-1") +
+      "\t0" +
+      "\t" +
+      (toHex(layout.keys[key][0]) || "-1") +
+      "\t" +
+      (toHex(layout.keys[key][1]) || "-1") +
+      "\t-1" +
+      "\t" +
+      (toHex(layout.keys[key][3]) || "-1") +
+      "\t" +
+      (toHex(layout.keys[key][5]) || "-1")
 
     layoutLines.push([value, ...extensions].join(""))
   })
@@ -193,6 +198,6 @@ export async function generateKlc(
       ].join("\r\n\r\n"),
     {
       encoding: "utf16le",
-    }
+    },
   )
 }

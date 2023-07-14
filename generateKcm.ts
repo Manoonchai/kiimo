@@ -5,7 +5,7 @@ import { Layout, WindowsAttributes } from "./main"
 
 export async function generateKcm(
   content: Record<string, unknown>,
-  outputPath: string
+  outputPath: string,
 ): Promise<void> {
   const layout = plainToClass(Layout, content)
   const errors = await validate(layout)
@@ -15,7 +15,7 @@ export async function generateKcm(
   }
 
   const windowsErrors = await validate(
-    plainToClass(WindowsAttributes, layout.os.windows)
+    plainToClass(WindowsAttributes, layout.os.windows),
   )
 
   if (windowsErrors.length) {
@@ -23,13 +23,13 @@ export async function generateKcm(
   }
 
   function toHex(str: string) {
-    var hex, i;
-    var result = "";
-    for (i=0; i<str.length; i++) {
-        hex = str.charCodeAt(i).toString(16);
-        result += "\\u"+("0000"+hex).slice(-4);
+    let hex, i
+    let result = ""
+    for (i = 0; i < str.length; i++) {
+      hex = str.charCodeAt(i).toString(16)
+      result += "\\u" + ("0000" + hex).slice(-4)
     }
-    return result;
+    return result
   }
 
   const klfDefaultLayout = {
@@ -81,11 +81,11 @@ export async function generateKcm(
     ".": "key PERIOD {",
     "/": "key SLASH {",
     " ": "key SPACE {",
-    "KPDL": "key NUMPAD_COMMA {",
+    KPDL: "key NUMPAD_COMMA {",
   }
 
   const lines = [
-`# License: ${layout.license} 
+    `# License: ${layout.license}
 \n# ${layout.language} ${layout.name} v${layout.version}
 \ntype OVERLAY
 map key 2 1
@@ -136,32 +136,47 @@ map key 51 COMMA
 map key 52 PERIOD
 map key 53 SLASH
 map key 57 SPACE
-map key 95 NUMPAD_COMMA`
+map key 95 NUMPAD_COMMA`,
   ]
 
   const layoutLines = [""]
-  Object.entries(klfDefaultLayout).forEach(([key, value]) => 
-  {
-    const extensions = "\n    "
-    +((layout.keys[key][0])?("label: '"+(toHex(layout.keys[key][0]))+"'\n    base: '"+(toHex(layout.keys[key][0]))+"'\n    "):"")
-    +((layout.keys[key][1])?("shift: '"+(toHex(layout.keys[key][1]))+"'\n    capslock: '"+(toHex(layout.keys[key][1]))+"'\n    "):"")
-    +((layout.keys[key][0])?("capslock+shift: '"+(toHex(layout.keys[key][0]))+"'\n    "):"")
-    +((layout.keys[key][3])?("ralt: '"+(toHex(layout.keys[key][3]))+"'\n    "):"")
-    +((layout.keys[key][5])?("ralt+shift: '"+(toHex(layout.keys[key][5]))+"'\n    "):"")
-    + "}\n"
+  Object.entries(klfDefaultLayout).forEach(([key, value]) => {
+    const extensions =
+      "\n    " +
+      (layout.keys[key][0]
+        ? "label: '" +
+          toHex(layout.keys[key][0]) +
+          "'\n    base: '" +
+          toHex(layout.keys[key][0]) +
+          "'\n    "
+        : "") +
+      (layout.keys[key][1]
+        ? "shift: '" +
+          toHex(layout.keys[key][1]) +
+          "'\n    capslock: '" +
+          toHex(layout.keys[key][1]) +
+          "'\n    "
+        : "") +
+      (layout.keys[key][0]
+        ? "capslock+shift: '" + toHex(layout.keys[key][0]) + "'\n    "
+        : "") +
+      (layout.keys[key][3]
+        ? "ralt: '" + toHex(layout.keys[key][3]) + "'\n    "
+        : "") +
+      (layout.keys[key][5]
+        ? "ralt+shift: '" + toHex(layout.keys[key][5]) + "'\n    "
+        : "") +
+      "}\n"
 
-    layoutLines.push([value,...extensions].join(""))
+    layoutLines.push([value, ...extensions].join(""))
   })
 
   fs.writeFileSync(
     outputPath,
     //"\ufeff" +
-      [
-        lines.join("\n"),
-        layoutLines.join("\n"),
-      ].join("\n\n"),
+    [lines.join("\n"), layoutLines.join("\n")].join("\n\n"),
     {
       encoding: "utf8",
-    }
+    },
   )
 }
