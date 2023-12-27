@@ -34,7 +34,7 @@ export async function generateChr_manifest(
   "manifest_version": 3,
   "description": "${layout.language} ${layout.name} v${layout.version}",
   "background": {
-    "scripts": ["background.js"]
+    "service_worker": ["background.js"]
   },
   "icons": {
     "16": "icon16.png",

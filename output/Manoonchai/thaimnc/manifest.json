@@ -4,7 +4,7 @@
   "manifest_version": 3,
   "description": "Thai Manoonchai v1.0",
   "background": {
-    "scripts": ["background.js"]
+    "service_worker": ["background.js"]
   },
   "icons": {
     "16": "icon16.png",
