@@ -10,3 +10,4 @@ Modify, and generate keyboard layout from single JSON file. Built with TypeScrip
   - `.klc` (Windows)
   - `.kcm` (Android Physical keyboard)
   - XKB (Linux)
+  - remap extension for Chrome OS (Manifest V3) (icons must be added manually / alphanumeric-shortcut keys will not work.)

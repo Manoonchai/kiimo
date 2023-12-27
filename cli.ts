@@ -5,6 +5,8 @@ import { generateKeylayout } from "./generateKeylayout"
 import { generateKlc } from "./generateKlc"
 import { generateXkb } from "./generateXkb"
 import { generateKcm } from "./generateKcm"
+import { generateChr_background } from "./generateChr_background"
+import { generateChr_manifest } from "./generateChr_manifest"
 import { fixUnicode } from "./utils"
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -90,6 +92,24 @@ const choices = filenames.map((filename) => ({
       await generateKcm(jsonInput, outputFilename)
 
       console.log(`Output : ${outputFilename}`)
+    } catch (e) {
+      console.error(e)
+      process.exit(1)
+    }
+
+    // Chr___OS
+    try {
+      const layoutName = response.input.split(".").slice(0, -1).join(".")
+      const dir = `output/${layoutName}/${jsonInput.os.windows.installerName.toLowerCase()}`
+      if (!fs.existsSync(dir)){
+              fs.mkdirSync(dir);
+      }
+      const outputManifest = dir+`/manifest.json`
+      await generateChr_manifest(jsonInput, outputManifest)
+      console.log(`Output : ${outputManifest}`)
+      const outputBackground = dir+`/background.js`
+      await generateChr_background(jsonInput, outputBackground)
+      console.log(`Output : ${outputBackground}`)
     } catch (e) {
       console.error(e)
       process.exit(1)
