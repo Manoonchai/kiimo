@@ -24,7 +24,7 @@ export async function generateKlc(
 
   const klcLocales = {
     Thai: "th-TH",
-    Laos: "lo-LA",
+    Lao: "lo-LA",
   }
 
   function toHex(str: string) {

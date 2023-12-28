@@ -24,7 +24,7 @@ export async function generateChr_manifest(
 
   const chrLocales = {
     Thai: "th",
-    Laos: "la",
+    Lao: "la",
   }
   
   const lines = 

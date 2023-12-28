@@ -1,12 +1,12 @@
 {
-  "name": "Manoonchai Laos Pali",
+  "name": "Manoonchai Lao-Pali",
   "version": "1.0",
-  "language": "Laos",
+  "language": "Lao",
   "layers": ["Base", "Shift", "Command", "AltGr", "Control", "ShiftAltGr"],
   "license": "MIT",
   "os": {
     "windows": {
-      "installerName": "LaosMnc",
+      "installerName": "LaoMnc",
       "company": "Manoonchai",
       "localeId": "00000454"
     }
