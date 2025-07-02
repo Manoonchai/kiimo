@@ -1,7 +1,7 @@
 import { plainToClass } from "class-transformer"
 import { validate } from "class-validator"
 import { js2xml } from "xml-js"
-import { Layout } from "./main"
+import { Layout } from "../main"
 
 export async function generateKeylayout(
   content: Record<string, unknown>
@@ -266,9 +266,9 @@ export async function generateKeylayout(
                 }
 
                 if (overrideKey == ">") {
-                  overrideKey = "&gt;"
+                  overrideKey = "&#x003E;"
                 } else if (overrideKey == "<") {
-                  overrideKey = "&lt;"
+                  overrideKey = "&#x003C;"
                 }
 
                 if (unicode) {

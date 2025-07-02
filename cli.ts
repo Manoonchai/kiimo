@@ -1,12 +1,12 @@
 import prompts from "prompts"
 import fs from "fs"
 import path from "path"
-import { generateKeylayout } from "./generateKeylayout"
-import { generateKlc } from "./generateKlc"
-import { generateXkb } from "./generateXkb"
-import { generateKcm } from "./generateKcm"
-import { generateChr_background } from "./generateChr_background"
-import { generateChr_manifest } from "./generateChr_manifest"
+import { generateKeylayout } from "./generator/generateKeylayout"
+import { generateKlc } from "./generator/generateKlc"
+import { generateXkb } from "./generator/generateXkb"
+import { generateKcm } from "./generator/generateKcm"
+import { generateChr_background } from "./generator/generateChr_background"
+import { generateChr_manifest } from "./generator/generateChr_manifest"
 import { fixUnicode } from "./utils"
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires

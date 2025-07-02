@@ -8,7 +8,7 @@ import fs from "fs"
 import {
   Layout,
   WindowsAttributes
-} from "./main"
+} from "../main"
 
 export async function generateChr_background(
   content: Record < string, unknown > ,

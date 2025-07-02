@@ -1,7 +1,7 @@
 import { plainToClass } from "class-transformer"
 import { validate } from "class-validator"
 import fs from "fs"
-import { Layout, WindowsAttributes } from "./main"
+import { Layout, WindowsAttributes } from "../main"
 
 export async function generateChr_manifest(
   content: Record<string, unknown>,
