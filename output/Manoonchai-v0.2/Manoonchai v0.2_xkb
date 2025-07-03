@@ -1,10 +1,6 @@
-partial alphanumeric_keys
-xkb_symbols "Mnc02" {
-
+partial alphanumeric_keysxkb_symbols "Mnc02" {
     // COPYRIGHT    "MIT"
-
     name[Group1]= "Thai (Manoonchai v0.2 v0.2)";
-
 
     key <AE10> { [ 0x1000030, 0x1000029, 0x1000e50,voidsymbol] };
     key <AE01> { [ 0x1000031, 0x1000021, 0x1000e51,voidsymbol] };
@@ -18,6 +14,7 @@ xkb_symbols "Mnc02" {
     key <AE09> { [ 0x1000039, 0x1000028, 0x1000e59,voidsymbol] };
     key <AE11> { [ 0x100002d, 0x100005f, 0x10000f7,voidsymbol] };
     key <AE12> { [ 0x100003d, 0x100002b, 0x10000d7,voidsymbol] };
+    key <AE13> { [ 0x1000060, 0x100007e, 0x10000a5,voidsymbol] };
     key <TLDE> { [ 0x1000060, 0x100007e, 0x1000060,voidsymbol] };
     key <AD01> { [ 0x1000e1e, 0x1000e11,voidsymbol,voidsymbol] };
     key <AD02> { [ 0x1000e04, 0x1000e12,voidsymbol,voidsymbol] };
@@ -43,6 +40,7 @@ xkb_symbols "Mnc02" {
     key <AC10> { [ 0x1000e07, 0x1000e28, 0x100003b, 0x100003a] };
     key <AC11> { [ 0x1000e37, 0x1000e2e, 0x1000027, 0x1000022] };
     key <BKSL> { [ 0x1000e4b, 0x1000e2f, 0x100005c, 0x100007c] };
+    key <LSGT> { [ 0x100002e, 0x100002c, 0x10000a7,voidsymbol] };
     key <AB01> { [ 0x1000e0a, 0x1000e2c, 0x1000e26,voidsymbol] };
     key <AB02> { [ 0x1000e44, 0x1000e4b,voidsymbol,voidsymbol] };
     key <AB03> { [ 0x1000e2a, 0x1000e4a, 0x1000e5a,voidsymbol] };
@@ -53,8 +51,8 @@ xkb_symbols "Mnc02" {
     key <AB08> { [ 0x1000e14, 0x1000e18, 0x100002c, 0x100003c] };
     key <AB09> { [ 0x1000e30, 0x1000e0f, 0x100002e, 0x100003e] };
     key <AB10> { [ 0x1000e38, 0x1000e3f, 0x100002f, 0x100003f] };
+    key <AB11> { [ 0x100005f, 0x100005f, 0x100005f, 0x100005f] };
     key <SPCE> { [ 0x1000020, 0x1000020, 0x1000020, 0x1000020] };
     key <KPDL> { [ 0x100002e, 0x100002c, 0x100002e, 0x100002e] };
-
     include "level3(ralt_switch)"
 };

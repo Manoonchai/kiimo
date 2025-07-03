@@ -1,6 +1,6 @@
 <?xml version="1.1" encoding="UTF-8"?>
 <!DOCTYPE keyboard SYSTEM "file://localhost/System/Library/DTDs/KeyboardLayout.dtd">
-<keyboard group="0" id="12345" name="Manoonchai Lao-Pali" maxout="1">
+<keyboard group="0" id="56185976" name="Manoonchai Lao-Pali" maxout="1">
   <layouts>
     <layout first="0" last="0" mapSet="defaultKeyMapSet" modifiers="defaultModifierMap"/>
   </layouts>
@@ -36,7 +36,7 @@
       <key code="7" output="ໄ"/>
       <key code="8" output="ທ"/>
       <key code="9" output="ຍ"/>
-      <key code="10" output="§"/>
+      <key code="10" output="."/>
       <key code="11" output="ຈ"/>
       <key code="12" output="ໃ"/>
       <key code="13" output="ຕ"/>
@@ -102,6 +102,8 @@
       <key code="89" output="7"/>
       <key code="91" output="8"/>
       <key code="92" output="9"/>
+      <key code="93" output="`"/>
+      <key code="94" output="_"/>
       <key code="96" output="&#x0010;"/>
       <key code="97" output="&#x0010;"/>
       <key code="98" output="&#x0010;"/>
@@ -145,7 +147,7 @@
       <key code="7" output="ຝ"/>
       <key code="8" output="ຜ"/>
       <key code="9" output="ຓ"/>
-      <key code="10" output="§"/>
+      <key code="10" output=","/>
       <key code="11" output="໊"/>
       <key code="12" output="ຒ"/>
       <key code="13" output="ຏ"/>
@@ -211,6 +213,8 @@
       <key code="89" output="7"/>
       <key code="91" output="8"/>
       <key code="92" output="9"/>
+      <key code="93" output="~"/>
+      <key code="94" output="_"/>
       <key code="96" output="&#x0010;"/>
       <key code="97" output="&#x0010;"/>
       <key code="98" output="&#x0010;"/>
@@ -254,7 +258,7 @@
       <key code="7" output="x"/>
       <key code="8" output="c"/>
       <key code="9" output="v"/>
-      <key code="10" output="§"/>
+      <key code="10" output="."/>
       <key code="11" output="b"/>
       <key code="12" output="q"/>
       <key code="13" output="w"/>
@@ -320,6 +324,8 @@
       <key code="89" output="7"/>
       <key code="91" output="8"/>
       <key code="92" output="9"/>
+      <key code="93" output="`"/>
+      <key code="94" output="_"/>
       <key code="96" output="&#x0010;"/>
       <key code="97" output="&#x0010;"/>
       <key code="98" output="&#x0010;"/>
@@ -429,6 +435,8 @@
       <key code="89" output="7"/>
       <key code="91" output="8"/>
       <key code="92" output="9"/>
+      <key code="93" output="¥"/>
+      <key code="94" output="_"/>
       <key code="96" output="&#x0010;"/>
       <key code="97" output="&#x0010;"/>
       <key code="98" output="&#x0010;"/>
@@ -538,6 +546,8 @@
       <key code="89" output="7"/>
       <key code="91" output="8"/>
       <key code="92" output="9"/>
+      <key code="93" output="¥"/>
+      <key code="94" output="_"/>
       <key code="96" output="&#x0010;"/>
       <key code="97" output="&#x0010;"/>
       <key code="98" output="&#x0010;"/>
@@ -581,7 +591,7 @@
       <key code="7" output=""/>
       <key code="8" output=""/>
       <key code="9" output=""/>
-      <key code="10" output="§"/>
+      <key code="10" output=""/>
       <key code="11" output=""/>
       <key code="12" output=""/>
       <key code="13" output=""/>
@@ -614,11 +624,11 @@
       <key code="40" output=""/>
       <key code="41" output=":"/>
       <key code="42" output="|"/>
-      <key code="43" output="&lt;"/>
+      <key code="43" output="&#x003C;"/>
       <key code="44" output="?"/>
       <key code="45" output=""/>
       <key code="46" output=""/>
-      <key code="47" output="&gt;"/>
+      <key code="47" output="&#x003E;"/>
       <key code="48" output="&#x0009;"/>
       <key code="49" output=" "/>
       <key code="50" output=""/>
@@ -647,6 +657,8 @@
       <key code="89" output="7"/>
       <key code="91" output="8"/>
       <key code="92" output="9"/>
+      <key code="93" output=""/>
+      <key code="94" output="_"/>
       <key code="96" output="&#x0010;"/>
       <key code="97" output="&#x0010;"/>
       <key code="98" output="&#x0010;"/>

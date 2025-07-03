@@ -53,6 +53,7 @@ export async function generateChr_background(
     "-": "Minus",
     "=": "Equal",
     "`": "Backquote",
+    "¥": "IntlYen",
     q: "KeyQ",
     w: "KeyW",
     e: "KeyE",
@@ -77,6 +78,7 @@ export async function generateChr_background(
     ";": "Semicolon",
     "'": "Quote",
     "\\": "Backslash",
+    "§": "IntlBackslash",
     z: "KeyZ",
     x: "KeyX",
     c: "KeyC",
@@ -87,6 +89,7 @@ export async function generateChr_background(
     ",": "Comma",
     ".": "Period",
     "/": "Slash",
+    "_": "IntlRo",
     " ": "Space",
     KPDL: "NumpadDecimal",
   }
@@ -113,13 +116,11 @@ chrome.input.ime.onFocus.addListener(function(context) {
 });
 
 function updateAltGrState(keyData) {
-  altGrState = (keyData.code == "AltRight") ? ((keyData.type == "keydown") ? AltGr.ALTERNATE : AltGr.PLAIN)
-                                              : altGrState;
+  altGrState = (keyData.code == "AltRight") ? ((keyData.type == "keydown") ? AltGr.ALTERNATE : AltGr.PLAIN) : altGrState;
 }
 
 function updateShiftState(keyData) {
-  shiftState = ((keyData.shiftKey && !(keyData.capsLock)) || (!(keyData.shiftKey) && keyData.capsLock)) ? 
-                 Shift.SHIFTED : Shift.PLAIN;
+  shiftState = ((keyData.shiftKey && !(keyData.capsLock)) || (!(keyData.shiftKey) && keyData.capsLock)) ? Shift.SHIFTED : Shift.PLAIN;
 }
 
 function isPureModifier(keyData) {

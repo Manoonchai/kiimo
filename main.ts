@@ -28,14 +28,14 @@ export class Layout {
   name: string
 
   @IsString()
+  nameTH: string
+
+  @IsString()
   version: string
 
   @IsString()
+  @IsIn(["Thai", "Lao"])
   language: string
-
-  //@IsString()
-  //@IsIn(["Thai"])
-  //language: "Thai"
 
   @ArrayNotEmpty()
   @IsIn(

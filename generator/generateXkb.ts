@@ -46,6 +46,7 @@ export async function generateXkb(
     "0": "key <AE10> { [",
     "-": "key <AE11> { [",
     "=": "key <AE12> { [",
+    "¥": "key <AE13> { [",
     "`": "key <TLDE> { [",
     q: "key <AD01> { [",
     w: "key <AD02> { [",
@@ -71,6 +72,7 @@ export async function generateXkb(
     ";": "key <AC10> { [",
     "'": "key <AC11> { [",
     "\\": "key <BKSL> { [",
+    "§": "key <LSGT> { [",
     z: "key <AB01> { [",
     x: "key <AB02> { [",
     c: "key <AB03> { [",
@@ -81,6 +83,7 @@ export async function generateXkb(
     ",": "key <AB08> { [",
     ".": "key <AB09> { [",
     "/": "key <AB10> { [",
+    "_": "key <AB11> { [",
     " ": "key <SPCE> { [",
     "KPDL": "key <KPDL> { [",
   }
@@ -106,10 +109,10 @@ export async function generateXkb(
     outputPath,
     //"\ufeff" +
     [
-      lines.join("\n"),
+      lines.join(""),
       layoutLines.join("\n    "),
       "    include \"level3(ralt_switch)\"\n};\n",
-    ].join("\n\n"),
+    ].join("\n"),
     {
       encoding: "utf8",
     }

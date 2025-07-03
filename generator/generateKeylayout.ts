@@ -1,7 +1,7 @@
 import { plainToClass } from "class-transformer"
 import { validate } from "class-validator"
 import { js2xml } from "xml-js"
-import { Layout } from "../main"
+import { Layout, WindowsAttributes } from "../main"
 
 export async function generateKeylayout(
   content: Record<string, unknown>
@@ -12,6 +12,17 @@ export async function generateKeylayout(
   if (errors.length) {
     throw new Error(errors.map((e) => e.toString()).join(", "))
   }
+
+  const windowsErrors = await validate(
+    plainToClass(WindowsAttributes, layout.os.windows),
+  )
+
+  if (windowsErrors.length) {
+    throw new Error(windowsErrors.map((e) => e.toString()).join(", "))
+  }
+
+  // random keyboard id only for Apple; weighted on Windows installer name
+  const s2n = (s: string): string => (Math.abs([...s].reduce((h, c) => (h << 5) - h + c.charCodeAt(0), 0)) % 90000000 + 10000000).toString()
 
   const defaultKeyMapSelects = [
     { layerName: "Base", layerValue: "anyControl? command?" },
@@ -132,6 +143,8 @@ export async function generateKeylayout(
     { code: 89, output: "7" },
     { code: 91, output: "8" },
     { code: 92, output: "9" },
+    { code: 93, output: "¥" },
+    { code: 94, output: "_" },
     { code: 96, output: "&#x0010;", unicode: true },
     { code: 97, output: "&#x0010;", unicode: true },
     { code: 98, output: "&#x0010;", unicode: true },
@@ -191,7 +204,7 @@ export async function generateKeylayout(
         name: "keyboard",
         attributes: {
           group: "0",
-          id: "12345",
+          id: s2n(layout.os.windows.installerName),
           name: layout.name,
           maxout: "1",
         },
@@ -246,7 +259,7 @@ export async function generateKeylayout(
 
                 // Override only index 0-50
                 // Since some symbols are the same in numpad's position and should not be overridden
-                if (code <= 50) {
+                if (code <= 50　|| (code == 93 || code == 94)) {
                   const key = layout.keys[output]?.[idx]
                   overrideKey = typeof key !== "undefined" ? key : output
                 } else {

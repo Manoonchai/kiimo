@@ -118,3 +118,11 @@ dist
 .pnp.*
 
 output/tmp.keylayout
+
+# local bakup file 
+.bak
+*.bak
+
+# YouCantSeeMe
+.DS_Store
+desktop.ini

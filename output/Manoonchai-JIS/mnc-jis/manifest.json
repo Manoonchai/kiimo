@@ -1,0 +1,27 @@
+{
+  "name": "Thai Manoonchai-JIS v1.0",
+  "version": "1.0",
+  "manifest_version": 3,
+  "description": "Thai Manoonchai-JIS v1.0",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "permissions": [
+    "input"
+  ],
+  "input_components": [
+    {
+      "name": "Thai Manoonchai-JIS v1.0",
+      "type": "ime",
+      "id": "th_manoonchai-jis_remap",
+      "description": "Thai Manoonchai-JIS v1.0",
+      "language": "th", 
+      "layouts": ["la(stea)"]
+    }
+  ]
+}

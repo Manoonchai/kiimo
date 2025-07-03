@@ -23,6 +23,7 @@ var lut = {
 "Minus": { "plain": {"plain": "-", "shifted": "_"}, "alternate": {"plain": "÷", "shifted":""}, "code": "Minus"},
 "Equal": { "plain": {"plain": "=", "shifted": "+"}, "alternate": {"plain": "×", "shifted":""}, "code": "Equal"},
 "Backquote": { "plain": {"plain": "`", "shifted": "~"}, "alternate": {"plain": "`", "shifted":""}, "code": "Backquote"},
+"IntlYen": { "plain": {"plain": "`", "shifted": "~"}, "alternate": {"plain": "¥", "shifted":""}, "code": "IntlYen"},
 "KeyQ": { "plain": {"plain": "ใ", "shifted": "ฒ"}, "alternate": {"plain": "", "shifted":""}, "code": "KeyQ"},
 "KeyW": { "plain": {"plain": "ต", "shifted": "ฏ"}, "alternate": {"plain": "", "shifted":""}, "code": "KeyW"},
 "KeyE": { "plain": {"plain": "ห", "shifted": "ซ"}, "alternate": {"plain": "", "shifted":""}, "code": "KeyE"},
@@ -47,6 +48,7 @@ var lut = {
 "Semicolon": { "plain": {"plain": "ว", "shifted": "ภ"}, "alternate": {"plain": ";", "shifted":":"}, "code": "Semicolon"},
 "Quote": { "plain": {"plain": "ื", "shifted": "\""}, "alternate": {"plain": "'", "shifted":"\""}, "code": "Quote"},
 "Backslash": { "plain": {"plain": "ฯ", "shifted": "ฌ"}, "alternate": {"plain": "\\", "shifted":"|"}, "code": "Backslash"},
+"IntlBackslash": { "plain": {"plain": ".", "shifted": ","}, "alternate": {"plain": "§", "shifted":""}, "code": "IntlBackslash"},
 "KeyZ": { "plain": {"plain": "ุ", "shifted": "ฤ"}, "alternate": {"plain": "ฦ", "shifted":""}, "code": "KeyZ"},
 "KeyX": { "plain": {"plain": "ไ", "shifted": "ฝ"}, "alternate": {"plain": "", "shifted":""}, "code": "KeyX"},
 "KeyC": { "plain": {"plain": "ท", "shifted": "ๆ"}, "alternate": {"plain": "๚", "shifted":""}, "code": "KeyC"},
@@ -57,6 +59,7 @@ var lut = {
 "Comma": { "plain": {"plain": "ด", "shifted": "ศ"}, "alternate": {"plain": ",", "shifted":"<"}, "code": "Comma"},
 "Period": { "plain": {"plain": "ะ", "shifted": "ฮ"}, "alternate": {"plain": ".", "shifted":">"}, "code": "Period"},
 "Slash": { "plain": {"plain": "ู", "shifted": "?"}, "alternate": {"plain": "/", "shifted":"?"}, "code": "Slash"},
+"IntlRo": { "plain": {"plain": "_", "shifted": "_"}, "alternate": {"plain": "_", "shifted":"_"}, "code": "IntlRo"},
 "Space": { "plain": {"plain": " ", "shifted": " "}, "alternate": {"plain": " ", "shifted":" "}, "code": "Space"},
 "NumpadDecimal": { "plain": {"plain": ".", "shifted": ","}, "alternate": {"plain": ".", "shifted":"."}, "code": "NumpadDecimal"},
 };
@@ -67,13 +70,11 @@ chrome.input.ime.onFocus.addListener(function(context) {
 });
 
 function updateAltGrState(keyData) {
-  altGrState = (keyData.code == "AltRight") ? ((keyData.type == "keydown") ? AltGr.ALTERNATE : AltGr.PLAIN)
-                                              : altGrState;
+  altGrState = (keyData.code == "AltRight") ? ((keyData.type == "keydown") ? AltGr.ALTERNATE : AltGr.PLAIN) : altGrState;
 }
 
 function updateShiftState(keyData) {
-  shiftState = ((keyData.shiftKey && !(keyData.capsLock)) || (!(keyData.shiftKey) && keyData.capsLock)) ? 
-                 Shift.SHIFTED : Shift.PLAIN;
+  shiftState = ((keyData.shiftKey && !(keyData.capsLock)) || (!(keyData.shiftKey) && keyData.capsLock)) ? Shift.SHIFTED : Shift.PLAIN;
 }
 
 function isPureModifier(keyData) {
