@@ -24,7 +24,8 @@ Modify, and generate keyboard layout from single JSON file. Built with TypeScrip
 2. Some platforms use icons or images; source images are in the [`src`](./src) folder.  
    If you want to use your own icons, create images with the same filenames and **replace the files inside the built output folder after building**.
 
-[key map](src/kiimo_layout.png)
+![key map](src/kiimo_layout.png)
+> **Note:** Chrome OS and Android physical keyboard layouts use the **same key mapping format** as XKB (Linux).
 
 # How to Build a Layout
 
