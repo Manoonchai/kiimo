@@ -15,7 +15,7 @@
 		<key>TISIconIsTemplate</key>
 		<false/>
 		<key>TISInputSourceID</key>
-		<string>com.manoonchai.keyboardlayout.mnc-jis.manoonchai-jis</string>
+		<string>com.manoonchai.keyboardlayout.mnc-jis.thai</string>
 		<key>TISIntendedLanguage</key>
 		<string>th</string>
 	</dict>

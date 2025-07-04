@@ -52,7 +52,7 @@ export async function generateMacBundle(
 		<key>TISIconIsTemplate</key>
 		<false/>
 		<key>TISInputSourceID</key>
-		<string>com.manoonchai.keyboardlayout.${layout.os.windows.installerName.toLocaleLowerCase()}.${layout.name.toLocaleLowerCase()}</string>
+		<string>com.manoonchai.keyboardlayout.${layout.os.windows.installerName.toLocaleLowerCase()}.${layout.language.toLocaleLowerCase()}</string>
 		<key>TISIntendedLanguage</key>
 		<string>th</string>
 	</dict>
