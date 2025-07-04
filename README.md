@@ -60,6 +60,10 @@ In this example, we use [Bun](https://bun.sh):
    To install the layout on your PC, use **Microsoft Keyboard Layout Creator (MSKLC)** to compile the generated `.klc` file into an installable layout.  
 
 # Changelog
+
+## 2025/07/04
+- Fixed wrong `TISInputSourceID` when generate `.bundle`.
+
 ## 2025/07/03
 - Added support for **ISO** and **JIS** layouts on:
   - macOS
