@@ -1,6 +1,6 @@
 <?xml version="1.1" encoding="UTF-8"?>
 <!DOCTYPE keyboard SYSTEM "file://localhost/System/Library/DTDs/KeyboardLayout.dtd">
-<keyboard group="0" id="15940625" name="ManoonchaiColemak" maxout="1">
+<keyboard group="0" id="80350151" name="ManoonchaiColemakZXCVD" maxout="1">
   <layouts>
     <layout first="0" last="0" mapSet="defaultKeyMapSet" modifiers="defaultModifierMap"/>
   </layouts>

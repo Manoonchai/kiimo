@@ -1,8 +1,8 @@
 {
-  "name": "Thai ManoonchaiColemak v1.0",
+  "name": "Thai ManoonchaiColemakZXCVD v1.0",
   "version": "1.0",
   "manifest_version": 3,
-  "description": "Thai ManoonchaiColemak v1.0",
+  "description": "Thai ManoonchaiColemakZXCVD v1.0",
   "background": {
     "service_worker": "background.js"
   },
@@ -16,10 +16,10 @@
   ],
   "input_components": [
     {
-      "name": "Thai ManoonchaiColemak v1.0",
+      "name": "Thai ManoonchaiColemakZXCVD v1.0",
       "type": "ime",
-      "id": "th_manoonchaicolemak_remap",
-      "description": "Thai ManoonchaiColemak v1.0",
+      "id": "th_manoonchaicolemakzxcvd_remap",
+      "description": "Thai ManoonchaiColemakZXCVD v1.0",
       "language": "th", 
       "layouts": ["la(stea)"]
     }

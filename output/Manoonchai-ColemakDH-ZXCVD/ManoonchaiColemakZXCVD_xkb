@@ -1,6 +1,6 @@
-partial alphanumeric_keysxkb_symbols "Mnc-DH" {
+partial alphanumeric_keysxkb_symbols "Mnc-DHV" {
     // COPYRIGHT    "MIT"
-    name[Group1]= "Thai (ManoonchaiColemak v1.0)";
+    name[Group1]= "Thai (ManoonchaiColemakZXCVD v1.0)";
 
     key <AE10> { [ 0x1000030, 0x1000029, 0x1000e50,voidsymbol] };
     key <AE01> { [ 0x1000031, 0x1000021, 0x1000e51,voidsymbol] };

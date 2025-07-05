@@ -1,13 +1,13 @@
 {
-  "name": "ManoonchaiColemak",
-  "nameTH": "มนูญชัยColemak",
+  "name": "ManoonchaiColemakZXCVD",
+  "nameTH": "มนูญชัยColemakZXCVD",
   "version": "1.0",
   "language": "Thai",
   "layers": ["Base", "Shift", "Command", "AltGr", "Control", "ShiftAltGr"],
   "license": "MIT",
   "os": {
     "windows": {
-      "installerName": "Mnc-DH",
+      "installerName": "Mnc-DHV",
       "company": "Manoonchai",
       "localeId": "0000041e"
     }
