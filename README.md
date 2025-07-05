@@ -44,12 +44,13 @@ In this example, we use [Bun](https://bun.sh):
    ```
    $ bun run cli
    ? Pick input JSON file › - Use arrow-keys. Return to submit.
-     Manoonchai-ColemakDH-Mod.json
-   ❯ Manoonchai.json
      Manoonchai_Lao.json
-     Manoonchai-WittNV.json
-     Manoonchai-v0.2.json
+     Manoonchai-ColemakDH-ZXCVD.json
+     Manoonchai-ColemakDH.json
      Manoonchai-JIS.json
+     Manoonchai-v0.2.json
+     Manoonchai-WittNV.json
+   ❯ Manoonchai.json
     ```
 4. The generated files will appear in:
     ```
@@ -60,6 +61,14 @@ In this example, we use [Bun](https://bun.sh):
    To install the layout on your PC, use **Microsoft Keyboard Layout Creator (MSKLC)** to compile the generated `.klc` file into an installable layout.  
 
 # Changelog
+
+## 2025/07/05
+- Improved JSON file picker:
+  - Now only shows `.json` files (excludes `.json.bak`)
+  - Sorted alphabetically (A–Z)
+- Layouts
+   - Moved @narze 's mod to `Manoonchai-ColemakDH-ZXCVD`
+   - Added original `Manoonchai-ColemakDH` layout (non-modified)
 
 ## 2025/07/04
 - Fixed wrong `TISInputSourceID` when generate `.bundle`.

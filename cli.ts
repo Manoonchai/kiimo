@@ -14,6 +14,8 @@ import { fixUnicode } from "./utils"
 prompts.override(require("yargs").argv)
 
 const filenames = fs.readdirSync("input")
+  .filter(name => name.endsWith(".json") && !name.endsWith(".json.bak"))
+  .sort((a, b) => a.localeCompare(b))
 const choices = filenames.map((filename) => ({
   title: filename,
   value: filename,
