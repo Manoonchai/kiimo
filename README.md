@@ -18,14 +18,30 @@ Modify, and generate keyboard layout from single JSON file. Built with TypeScrip
   Kiimo does not currently generate `.klc` files for ISO or JIS layouts, and **Microsoft Keyboard Layout Creator (MSKLC)** cannot compile them correctly  
   (e.g., `¥` and `_` keys cannot be mapped).
 
+# How to Download Generated Layout(s)
+
+## Download WHOLE repo
+
+- From the project’s main page, click the **Code** button, then **Download ZIP**.
+- Extract the ZIP file.
+- Locate the `output` folder.
+- Find the layout you want.
+
+## Download Only Some Folder?
+
+Want just one folder (e.g. `Manoonchai-ColemakDH.bundle`)?  
+GitHub doesn’t support this directly — you’ll have to find your own way. 😉  
+<sub>Hint: try searching “download GitHub subdirectory”</sub>
+
 # How to Create Your Own Layout
 
 1. Edit an existing JSON file in the [`input`](./input) directory, or add a new one.
 2. Some platforms use icons or images; source images are in the [`src`](./src) folder.  
    If you want to use your own icons, create images with the same filenames and **replace the files inside the built output folder after building**.
 
+### Key in `.json`:
 ![key map](src/kiimo_layout.png)
-> **Note:** Chrome OS and Android physical keyboard layouts use the **same key mapping format** as XKB (Linux).
+> **Note:** Chrome OS and Android physical keyboard layouts use the **same key mapping format as XKB** (Linux).
 
 # How to Build a Layout
 
