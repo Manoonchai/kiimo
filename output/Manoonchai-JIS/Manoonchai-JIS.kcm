@@ -27,6 +27,7 @@ map key 22 U
 map key 23 I
 map key 24 O
 map key 25 P
+map key 26 AT
 map key 27 LEFT_BRACKET
 map key 30 A
 map key 31 S
@@ -261,7 +262,7 @@ key P {
     capslock+shift: '\u0e1a'
 }
 
-key LEFT_BRACKET {
+key AT {
     label: '\u0e47'
     base: '\u0e47'
     shift: '\u0e06'

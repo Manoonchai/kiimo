@@ -44,6 +44,7 @@ export async function generateKcm(
     "0": "0",
     "-": "MINUS",
     "=": "EQUALS",
+    "^": "EQUALS",
     "¥": "YEN",
 
     q: "Q",
@@ -56,6 +57,7 @@ export async function generateKcm(
     i: "I",
     o: "O",
     p: "P",
+    "@": "AT",
     "[": "LEFT_BRACKET",
     "]": "RIGHT_BRACKET",
 
@@ -123,6 +125,7 @@ export async function generateKcm(
     I: 23,
     O: 24,
     P: 25,
+    AT: 26,
     LEFT_BRACKET: 26,
     RIGHT_BRACKET: 27,
 
@@ -157,7 +160,9 @@ export async function generateKcm(
   };
 
   const keyNameToChar = Object.entries(charToKeyName).reduce<Record<string, string>>((acc, [char, keyName]) => {
-    acc[keyName] = char;
+    if (!(keyName in acc)) {
+      acc[keyName] = char;
+    }
     return acc;
   }, {});
 

@@ -54,6 +54,7 @@ export async function generateKlc(
     "0": "0",
     "-": "OEM_MINUS",
     "=": "OEM_PLUS",
+    "^": "OEM_PLUS",
     q: "Q",
     w: "W",
     e: "E",
