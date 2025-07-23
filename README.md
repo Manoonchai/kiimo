@@ -33,6 +33,12 @@ Want just one folder (e.g. `Manoonchai-ColemakDH.bundle`)?
 GitHub doesn’t support this directly — you’ll have to find your own way. 😉  
 <sub>Hint: try searching “download GitHub subdirectory”</sub>
 
+## How to Install `.xkb` Layouts
+
+See installation guide at:  
+👉 [https://github.com/hiohlan/mnc](https://github.com/hiohlan/mnc)
+
+
 # How to Create Your Own Layout
 
 1. Edit an existing JSON file in the [`input`](./input) directory, or add a new one.
@@ -77,6 +83,14 @@ In this example, we use [Bun](https://bun.sh):
    To install the layout on your PC, use **Microsoft Keyboard Layout Creator (MSKLC)** to compile the generated `.klc` file into an installable layout.  
 
 # Changelog
+
+## 2025/07/23
+- Fixed wrong 
+   ```
+   partial alphanumeric_keys
+   xkb_symbols "ThaiMnc"
+   ```
+   when generate `xkb`.
 
 ## 2025/07/05
 - Improved JSON file picker:
