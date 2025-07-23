@@ -1,5 +1,8 @@
-partial alphanumeric_keysxkb_symbols "Mnc-JIS" {
+partial alphanumeric_keys
+xkb_symbols "Mnc-JIS" {
+
     // COPYRIGHT    "MIT"
+
     name[Group1]= "Thai (Manoonchai-JIS v1.0)";
 
     key <AE10> { [ 0x1000030, 0x100005f, 0x1000e50,voidsymbol] };

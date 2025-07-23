@@ -107,9 +107,8 @@ export async function generateXkb(
 
   fs.writeFileSync(
     outputPath,
-    //"\ufeff" +
     [
-      lines.join(""),
+      lines.join("\n"),
       layoutLines.join("\n    "),
       "    include \"level3(ralt_switch)\"\n};\n",
     ].join("\n"),
