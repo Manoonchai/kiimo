@@ -59,7 +59,7 @@ export async function generateMacBundle(
 </dict>
 </plist>`
 
-files["resources/th.lproj/infoPlist.strings"] =`
+files["Resources/th.lproj/infoPlist.strings"] =`
 "${layout.name}" = "${layout.nameTH}";
 `
 
