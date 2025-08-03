@@ -24,7 +24,7 @@ export async function generateMacBundle(
 
   const macLocales = {
     Thai: "th",
-    Lao: "la",
+    Lao: "lo",
   }
   const langCode = macLocales[layout.language as keyof typeof macLocales];
 

@@ -24,7 +24,7 @@ export async function generateChr_manifest(
 
   const chrLocales = {
     Thai: "th",
-    Lao: "la",
+    Lao: "lo",
   }
   const safeName = layout.name.replace(/\s+/g, "_").replace(/\./g, "_");
   const langCode = chrLocales[layout.language as keyof typeof chrLocales];
