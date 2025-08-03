@@ -10,8 +10,8 @@ var shiftState = Shift.PLAIN;
 var lastRemappedKeyEvent = undefined;
 
 var lut = {
-"Digit0": { "plain": {"plain": ")", "shifted": "᪀"}, "alternate": {"plain": "᪐", "shifted":""}, "code": "Digit0"},
-"Digit1": { "plain": {"plain": "(", "shifted": "᪁"}, "alternate": {"plain": "᪑", "shifted":"!"}, "code": "Digit1"},
+"Digit0": { "plain": {"plain": "᪩", "shifted": "᪀"}, "alternate": {"plain": "᪐", "shifted":""}, "code": "Digit0"},
+"Digit1": { "plain": {"plain": "᪨", "shifted": "᪁"}, "alternate": {"plain": "᪑", "shifted":"!"}, "code": "Digit1"},
 "Digit2": { "plain": {"plain": "ᩓ", "shifted": "᪂"}, "alternate": {"plain": "᪒", "shifted":"@"}, "code": "Digit2"},
 "Digit3": { "plain": {"plain": "ᩴ", "shifted": "᪃"}, "alternate": {"plain": "᪓", "shifted":"#"}, "code": "Digit3"},
 "Digit4": { "plain": {"plain": "ᨤ", "shifted": "᪄"}, "alternate": {"plain": "᪔", "shifted":"$"}, "code": "Digit4"},
@@ -20,8 +20,8 @@ var lut = {
 "Digit7": { "plain": {"plain": "ᩋ", "shifted": "᪇"}, "alternate": {"plain": "᪗", "shifted":"&"}, "code": "Digit7"},
 "Digit8": { "plain": {"plain": "᩵", "shifted": "᪈"}, "alternate": {"plain": "᪘", "shifted":"*"}, "code": "Digit8"},
 "Digit9": { "plain": {"plain": "ᩖ", "shifted": "᪉"}, "alternate": {"plain": "᪙", "shifted":"+"}, "code": "Digit9"},
-"Minus": { "plain": {"plain": "-", "shifted": "᪨"}, "alternate": {"plain": "_", "shifted":"÷"}, "code": "Minus"},
-"Equal": { "plain": {"plain": "ᪧ", "shifted": "᪩"}, "alternate": {"plain": "=", "shifted":"×"}, "code": "Equal"},
+"Minus": { "plain": {"plain": "-", "shifted": "("}, "alternate": {"plain": "_", "shifted":"÷"}, "code": "Minus"},
+"Equal": { "plain": {"plain": "ᪧ", "shifted": ")"}, "alternate": {"plain": "=", "shifted":"×"}, "code": "Equal"},
 "Backquote": { "plain": {"plain": "᪥", "shifted": "᪬"}, "alternate": {"plain": "~", "shifted":"`"}, "code": "Backquote"},
 "IntlYen": { "plain": {"plain": "᪥", "shifted": "᪬"}, "alternate": {"plain": "¥", "shifted":""}, "code": "IntlYen"},
 "KeyQ": { "plain": {"plain": "ᩲ", "shifted": "ᨰ"}, "alternate": {"plain": "᪭", "shifted":"1"}, "code": "KeyQ"},

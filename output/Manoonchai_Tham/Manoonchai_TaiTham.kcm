@@ -57,20 +57,20 @@ map key 75 SPACE
 map key 95 NUMPAD_COMMA
 
 key 0 {
-    label: '\u0029'
-    base: '\u0029'
+    label: '\u1aa9'
+    base: '\u1aa9'
     shift: '\u1a80'
     capslock: '\u1a80'
-    capslock+shift: '\u0029'
+    capslock+shift: '\u1aa9'
     ralt: '\u1a90'
 }
 
 key 1 {
-    label: '\u0028'
-    base: '\u0028'
+    label: '\u1aa8'
+    base: '\u1aa8'
     shift: '\u1a81'
     capslock: '\u1a81'
-    capslock+shift: '\u0028'
+    capslock+shift: '\u1aa8'
     ralt: '\u1a91'
     ralt+shift: '\u0021'
 }
@@ -168,8 +168,8 @@ key GRAVE {
 key MINUS {
     label: '\u002d'
     base: '\u002d'
-    shift: '\u1aa8'
-    capslock: '\u1aa8'
+    shift: '\u0028'
+    capslock: '\u0028'
     capslock+shift: '\u002d'
     ralt: '\u005f'
     ralt+shift: '\u00f7'
@@ -178,8 +178,8 @@ key MINUS {
 key EQUALS {
     label: '\u1aa7'
     base: '\u1aa7'
-    shift: '\u1aa9'
-    capslock: '\u1aa9'
+    shift: '\u0029'
+    capslock: '\u0029'
     capslock+shift: '\u1aa7'
     ralt: '\u003d'
     ralt+shift: '\u00d7'

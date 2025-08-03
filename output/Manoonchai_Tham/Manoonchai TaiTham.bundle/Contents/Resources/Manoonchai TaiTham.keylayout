@@ -44,7 +44,7 @@
       <key code="15" output="ᩃ"/>
       <key code="16" output="ᨸ"/>
       <key code="17" output="ᩈ"/>
-      <key code="18" output="("/>
+      <key code="18" output="᪨"/>
       <key code="19" output="ᩓ"/>
       <key code="20" output="ᩴ"/>
       <key code="21" output="ᨤ"/>
@@ -55,7 +55,7 @@
       <key code="26" output="ᩋ"/>
       <key code="27" output="-"/>
       <key code="28" output="᩵"/>
-      <key code="29" output=")"/>
+      <key code="29" output="᪩"/>
       <key code="30" output="ᩊ"/>
       <key code="31" output="ᩥ"/>
       <key code="32" output="ᩢ"/>
@@ -161,10 +161,10 @@
       <key code="21" output="᪄"/>
       <key code="22" output="᪆"/>
       <key code="23" output="᪅"/>
-      <key code="24" output="᪩"/>
+      <key code="24" output=")"/>
       <key code="25" output="᪉"/>
       <key code="26" output="᪇"/>
-      <key code="27" output="᪨"/>
+      <key code="27" output="("/>
       <key code="28" output="᪈"/>
       <key code="29" output="᪀"/>
       <key code="30" output="ᨢ"/>
