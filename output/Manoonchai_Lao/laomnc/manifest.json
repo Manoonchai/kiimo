@@ -1,0 +1,27 @@
+{
+  "name": "Lao Manoonchai Lao-Pali v1.0",
+  "version": "1.0",
+  "manifest_version": 3,
+  "description": "Lao Manoonchai Lao-Pali v1.0",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "permissions": [
+    "input"
+  ],
+  "input_components": [
+    {
+      "name": "Lao Manoonchai Lao-Pali v1.0",
+      "type": "ime",
+      "id": "la_manoonchai lao-pali_remap",
+      "description": "Lao Manoonchai Lao-Pali v1.0",
+      "language": "la", 
+      "layouts": ["la(stea)"]
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "Thai Manoonchai v0.2 v0.2",
+  "version": "0.2",
+  "manifest_version": 3,
+  "description": "Thai Manoonchai v0.2 v0.2",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "permissions": [
+    "input"
+  ],
+  "input_components": [
+    {
+      "name": "Thai Manoonchai v0.2 v0.2",
+      "type": "ime",
+      "id": "th_manoonchai v0.2_remap",
+      "description": "Thai Manoonchai v0.2 v0.2",
+      "language": "th", 
+      "layouts": ["la(stea)"]
+    }
+  ]
+}
