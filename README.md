@@ -49,7 +49,8 @@ See installation guide at:
 
 1. Edit an existing JSON file in the [`input`](./input) directory, or add a new one.
 2. Some platforms use icons or images; source images are in the [`src`](./src) folder.  
-   If you want to use your own icons, create images with the same filenames and **replace the files inside the built output folder after building**.
+   If you want to use your own icons, create images with the same filenames and **replace the files inside the built output folder after building**.  
+   For macOS bundles, you can also configure which icon to use by setting the `icon` field in your JSON config (e.g. "icon": "lana" will use `./src/iconMac/icon_lana.icns`).
 
 ### Key in `.json`:
 ![key map](src/kiimo_layout.png)
@@ -89,6 +90,10 @@ In this example, we use [Bun](https://bun.sh):
    To install the layout on your PC, use **Microsoft Keyboard Layout Creator (MSKLC)** to compile the generated `.klc` file into an installable layout.  
 
 # Changelog
+
+## 2025/08/04a
+- Improved 16x16px icon for Mac
+- Swap some key for TaiTham
 
 ## 2025/08/04
 - Fixed: wrong locales ID (`la` -> `lo`).

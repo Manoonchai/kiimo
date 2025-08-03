@@ -68,7 +68,11 @@ const choices = filenames.map((filename) => ({
 
       console.log(`Output : ${outputFilename}`)
 
-      fs.copyFileSync("src/iconMac/icon.icns", path.join(resourceDir, `${layoutName}.icns`))
+      const iconName = jsonInput.icon ? `icon_${jsonInput.icon}` : 'icon';
+      fs.copyFileSync(
+        `src/iconMac/${iconName}.icns`,
+        path.join(resourceDir, `${layoutName}.icns`)
+      );
 
       const files = await generateMacBundle(jsonInput)
       for (const [filename, content] of Object.entries(files)) {
