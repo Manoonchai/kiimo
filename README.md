@@ -13,10 +13,16 @@ Modify, and generate keyboard layout from single JSON file. Built with TypeScrip
   - Chrome OS remap extension (Manifest V3)  
     *Note: Alphanumeric shortcut keys still do not work on Chrome OS.*
 
-## Notes for JIS & ISO Layout
-- **ISO and JIS layouts are not supported on Windows yet**:  
-  Kiimo does not currently generate `.klc` files for ISO or JIS layouts, and **Microsoft Keyboard Layout Creator (MSKLC)** cannot compile them correctly  
-  (e.g., `¥` and `_` keys cannot be mapped).
+## Limitations
+
+- **ISO and JIS layouts are not supported on Windows yet:**  
+  Kiimo currently does not generate corrected `.klc` files for ISO or JIS layouts, and **Microsoft Keyboard Layout Creator (MSKLC)** cannot compile them properly  
+  (e.g., keys such as `¥` and `_` cannot be mapped).
+
+- **One key cannot send multiple codepoints due to compatibility limitations:**  
+  For example, plain **XKB** does not support mapping a single key to send multiple characters.  
+  See the mailing list thread:  **[(xkb) how to map a key to multiple characters?](https://lists.x.org/archives/xorg/2009-January/042282.html)**  
+  For instance, you cannot configure the “A” key to send “aaaaaaaaaa”.
 
 # How to Download Generated Layout(s)
 
@@ -83,6 +89,10 @@ In this example, we use [Bun](https://bun.sh):
    To install the layout on your PC, use **Microsoft Keyboard Layout Creator (MSKLC)** to compile the generated `.klc` file into an installable layout.  
 
 # Changelog
+
+## 2025/08/04
+- Fixed: wrong locales ID (`la` -> `lo`).
+- Feature: Added support for TaiTham (Lanna, Tai Khuen, Tai Lue).
 
 ## 2025/08/03
 - Fixed: generated wrong `id` — it included space characters and dots. Now replaced with underscores for compatibility.
