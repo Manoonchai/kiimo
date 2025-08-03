@@ -18,7 +18,7 @@
     {
       "name": "Lao Manoonchai Lao-Pali v1.0",
       "type": "ime",
-      "id": "la_manoonchai lao-pali_remap",
+      "id": "la_manoonchai_lao-pali_remap",
       "description": "Lao Manoonchai Lao-Pali v1.0",
       "language": "la", 
       "layouts": ["la(stea)"]

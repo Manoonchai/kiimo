@@ -84,6 +84,10 @@ In this example, we use [Bun](https://bun.sh):
 
 # Changelog
 
+## 2025/08/03
+- Fixed: generated wrong `id` — it included space characters and dots. Now replaced with underscores for compatibility.
+- Switched macOS bundle language tag from hardcoded "th" to dynamically use the language specified in the JSON input.
+
 ## 2025/07/23
 - Fixed wrong 
    ```

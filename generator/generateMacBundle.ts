@@ -22,6 +22,12 @@ export async function generateMacBundle(
 
   const files: Record<string, string> = {}
 
+  const macLocales = {
+    Thai: "th",
+    Lao: "la",
+  }
+  const langCode = macLocales[layout.language as keyof typeof macLocales];
+
   files["version.plist"] = `<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
@@ -54,7 +60,7 @@ export async function generateMacBundle(
 		<key>TISInputSourceID</key>
 		<string>com.manoonchai.keyboardlayout.${layout.os.windows.installerName.toLocaleLowerCase()}.${layout.language.toLocaleLowerCase()}</string>
 		<key>TISIntendedLanguage</key>
-		<string>th</string>
+		<string>${langCode}</string>
 	</dict>
 </dict>
 </plist>`
