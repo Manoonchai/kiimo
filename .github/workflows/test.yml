@@ -36,7 +36,7 @@ jobs:
 
       - run: yarn install --frozen-lockfile
       - run: yarn generate --input Manoonchai.json
-      - run: yarn generate --input Manoonchai-ColemakDH-Mod.json
+      - run: yarn generate --input Manoonchai-ColemakDH-ZXCVD.json
       - run: yarn test --coverage
 
       - name: Codecov
