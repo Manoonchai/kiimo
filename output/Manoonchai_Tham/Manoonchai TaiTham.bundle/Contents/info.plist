@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleIdentifier</key>
+	<string>com.manoonchai.keyboardlayout.thammnc</string>
+	<key>CFBundleName</key>
+	<string>Manoonchai TaiTham</string>
+	<key>CFBundleVersion</key>
+	<string></string>
+	<key>KLInfo_Manoonchai TaiTham</key>
+	<dict>
+		<key>TICapsLockLanguageSwitchCapable</key>
+		<true/>
+		<key>TISIconIsTemplate</key>
+		<false/>
+		<key>TISInputSourceID</key>
+		<string>com.manoonchai.keyboardlayout.thammnc.thai</string>
+		<key>TISIntendedLanguage</key>
+		<string>th</string>
+	</dict>
+</dict>
+</plist>
