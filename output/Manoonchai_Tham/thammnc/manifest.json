@@ -1,8 +1,8 @@
 {
-  "name": "Thai Manoonchai v0.2 v0.2",
-  "version": "0.2",
+  "name": "Thai Manoonchai TaiTham v1.0",
+  "version": "1.0",
   "manifest_version": 3,
-  "description": "Thai Manoonchai v0.2 v0.2",
+  "description": "Thai Manoonchai TaiTham v1.0",
   "background": {
     "service_worker": "background.js"
   },
@@ -16,10 +16,10 @@
   ],
   "input_components": [
     {
-      "name": "Thai Manoonchai v0.2 v0.2",
+      "name": "Thai Manoonchai TaiTham v1.0",
       "type": "ime",
-      "id": "th_manoonchai_v0_2_remap",
-      "description": "Thai Manoonchai v0.2 v0.2",
+      "id": "th_manoonchai_taitham_remap",
+      "description": "Thai Manoonchai TaiTham v1.0",
       "language": "th", 
       "layouts": ["la(stea)"]
     }

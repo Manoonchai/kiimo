@@ -35,11 +35,14 @@ const choices = filenames.map((filename) => ({
 
     let jsonName: string;
     let layoutName: string;
+    let safeLayoutName: string;
     let dir: string;
 
     try {
       jsonName = response.input.split(".").slice(0, -1).join(".");
       layoutName = jsonInput.name;
+      // Replace spaces with underscores for safe use in IDs or filenames for some system
+      safeLayoutName = layoutName.replace(/\s+/g, "_").replace(/\./g, "_");
       dir = `output/${jsonName}`;
       if (!fs.existsSync(dir)) {
         fs.mkdirSync(dir);
@@ -65,7 +68,11 @@ const choices = filenames.map((filename) => ({
 
       console.log(`Output : ${outputFilename}`)
 
-      fs.copyFileSync("src/iconMac/icon.icns", path.join(resourceDir, `${layoutName}.icns`))
+      const iconName = jsonInput.icon ? `icon_${jsonInput.icon}` : 'icon';
+      fs.copyFileSync(
+        `src/iconMac/${iconName}.icns`,
+        path.join(resourceDir, `${layoutName}.icns`)
+      );
 
       const files = await generateMacBundle(jsonInput)
       for (const [filename, content] of Object.entries(files)) {
@@ -94,7 +101,7 @@ const choices = filenames.map((filename) => ({
 
     // Xkb
     try {
-      const outputFilename = `${dir}/${layoutName}_xkb`
+      const outputFilename = `${dir}/${safeLayoutName}_xkb`
       await generateXkb(jsonInput, outputFilename)
 
       console.log(`Output : ${outputFilename}`)
@@ -108,7 +115,7 @@ const choices = filenames.map((filename) => ({
       if (!fs.existsSync(dir)){
               fs.mkdirSync(dir);
       }
-      const outputFilename = `${dir}/${layoutName}.kcm`
+      const outputFilename = `${dir}/${safeLayoutName}.kcm`
       await generateKcm(jsonInput, outputFilename)
 
       console.log(`Output : ${outputFilename}`)

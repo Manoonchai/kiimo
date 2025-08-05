@@ -24,9 +24,11 @@ export async function generateChr_manifest(
 
   const chrLocales = {
     Thai: "th",
-    Lao: "la",
+    Lao: "lo",
   }
-  
+  const safeName = layout.name.replace(/\s+/g, "_").replace(/\./g, "_");
+  const langCode = chrLocales[layout.language as keyof typeof chrLocales];
+
   const lines = 
 `{
   "name": "${layout.language} ${layout.name} v${layout.version}",
@@ -48,9 +50,9 @@ export async function generateChr_manifest(
     {
       "name": "${layout.language} ${layout.name} v${layout.version}",
       "type": "ime",
-      "id": "${chrLocales[layout.language as keyof typeof chrLocales]}_${layout.name.toLowerCase()}_remap",
+      "id": "${langCode}_${safeName.toLowerCase()}_remap",
       "description": "${layout.language} ${layout.name} v${layout.version}",
-      "language": "${chrLocales[layout.language as keyof typeof chrLocales]}", 
+      "language": "${langCode}", 
       "layouts": ["la(stea)"]
     }
   ]
