@@ -7,8 +7,8 @@
   "author": "Manassarn Manoonchai <manassarn@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "generate": "ts-node cli.ts",
-    "start": "ts-node .",
+    "generate": "tsx cli.ts",
+    "start": "tsx .",
     "test": "vitest",
     "lint": "eslint .",
     "prepare": "husky install"
@@ -35,7 +35,7 @@
     "husky": "^8.0.3",
     "jiti": "^2.6.1",
     "prettier": "3.0.0",
-    "ts-node": "^10.9.2",
+    "tsx": "^4.20.6",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.45.0",
     "vitest": "^3.2.4"
