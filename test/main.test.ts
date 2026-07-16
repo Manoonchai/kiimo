@@ -1,7 +1,7 @@
 import fs from "fs"
 import path from "path"
 import { js2xml, xml2js } from "xml-js"
-import { describe, it, expect } from 'vitest'
+import { describe, it, expect } from "bun:test"
 import { validateLayout } from "../main"
 import { generateKeylayout } from "../generator/generateKeylayout"
 import { generateKlc } from "../generator/generateKlc"

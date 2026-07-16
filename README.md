@@ -24,6 +24,9 @@ Modify, and generate keyboard layout from single JSON file. Built with TypeScrip
   See the mailing list thread:  **[(xkb) how to map a key to multiple characters?](https://lists.x.org/archives/xorg/2009-January/042282.html)**  
   For instance, you cannot configure the “A” key to send “aaaaaaaaaa”.
 
+- **No Dead keys:**  
+  See the upstream issue: https://github.com/Manoonchai/kiimo/issues/17
+
 # How to Download Generated Layout(s)
 
 ## Download WHOLE repo
@@ -90,6 +93,10 @@ In this example, we use [Bun](https://bun.sh):
    To install the layout on your PC, use **Microsoft Keyboard Layout Creator (MSKLC)** to compile the generated `.klc` file into an installable layout.  
 
 # Changelog
+
+## 2026/03/10
+- CHORE!: drop yarn, migrate tsx to bun
+- Fixed?: JIS, add quote mark, and periodcomma at underbar key
 
 ## 2026/01/16
 - Fixed: missing ᩀ(อย) in TaiTham 

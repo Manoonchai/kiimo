@@ -187,6 +187,7 @@ key Q {
     shift: '\u0e12'
     capslock: '\u0e12'
     capslock+shift: '\u0e43'
+    ralt: '\u2018'
 }
 
 key W {
@@ -195,6 +196,7 @@ key W {
     shift: '\u0e0f'
     capslock: '\u0e0f'
     capslock+shift: '\u0e15'
+    ralt: '\u2019'
 }
 
 key E {
@@ -203,6 +205,7 @@ key E {
     shift: '\u0e0b'
     capslock: '\u0e0b'
     capslock+shift: '\u0e2b'
+    ralt: '\u201c'
 }
 
 key R {
@@ -211,6 +214,7 @@ key R {
     shift: '\u0e0d'
     capslock: '\u0e0d'
     capslock+shift: '\u0e25'
+    ralt: '\u201d'
 }
 
 key T {
@@ -219,6 +223,7 @@ key T {
     shift: '\u0e1f'
     capslock: '\u0e1f'
     capslock+shift: '\u0e2a'
+    ralt: '\u2026'
 }
 
 key Y {
@@ -398,6 +403,7 @@ key BACKSLASHUK {
     capslock: '\u002c'
     capslock+shift: '\u002e'
     ralt: '\u00a7'
+    ralt+shift: '\u00b1'
 }
 
 key Z {
@@ -424,6 +430,7 @@ key C {
     capslock: '\u0e46'
     capslock+shift: '\u0e17'
     ralt: '\u0e5a'
+    ralt+shift: '\u00ab'
 }
 
 key V {
@@ -432,6 +439,7 @@ key V {
     shift: '\u0e13'
     capslock: '\u0e13'
     capslock+shift: '\u0e22'
+    ralt+shift: '\u00bb'
 }
 
 key B {
@@ -449,6 +457,7 @@ key N {
     capslock: '\u0e4b'
     capslock+shift: '\u0e04'
     ralt: '\u0e05'
+    ralt+shift: '\u2013'
 }
 
 key M {
@@ -458,6 +467,7 @@ key M {
     capslock: '\u0e4c'
     capslock+shift: '\u0e35'
     ralt: '\u0e4e'
+    ralt+shift: '\u2014'
 }
 
 key COMMA {
@@ -491,12 +501,12 @@ key SLASH {
 }
 
 key RO {
-    label: '\u005f'
-    base: '\u005f'
-    shift: '\u002b'
-    capslock: '\u002b'
-    capslock+shift: '\u005f'
-    ralt: '\u005f'
+    label: '\u002e'
+    base: '\u002e'
+    shift: '\u002c'
+    capslock: '\u002c'
+    capslock+shift: '\u002e'
+    ralt: '\u002b'
     ralt+shift: '\u005f'
 }
 

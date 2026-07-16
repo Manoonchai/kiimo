@@ -9,7 +9,8 @@ import { generateKcm } from "./generator/generateKcm"
 import { generateChr_background } from "./generator/generateChr_background"
 import { generateChr_manifest } from "./generator/generateChr_manifest"
 import { fixUnicode } from "./utils"
-import { argv } from "yargs"
+import yargs from "yargs"
+const { argv } = yargs
 
 prompts.override(argv)
 
